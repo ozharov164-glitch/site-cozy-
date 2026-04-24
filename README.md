@@ -35,8 +35,22 @@ git push -u origin main
 
 ## GitHub Pages
 
-1. После первого push: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. Workflow `.github/workflows/pages.yml` соберёт проект с `VITE_BASE=/site-cozy-/` и выложит артефакт.
+### Если в Actions ошибка `404` / `Failed to create deployment`
+
+GitHub **не создаёт деплой**, пока в репозитории **не включён Pages с источником «GitHub Actions»**.
+
+1. Открой настройки репозитория: **[Pages settings → site-cozy-](https://github.com/ozharov164-glitch/site-cozy-/settings/pages)**.
+2. Блок **Build and deployment** → поле **Source** (источник).
+3. Выбери **GitHub Actions** (не «Deploy from a branch»).
+4. Если GitHub спросит разрешение на workflows — подтверди во вкладке **Actions**.
+5. Зайди во вкладку **Actions** → последний workflow → **Re-run all jobs** (или дождись следующего push).
+
+После этого шаг `deploy` перестанет отвечать 404.
+
+### Обычная настройка
+
+1. **Settings → Pages → Source: GitHub Actions**.
+2. Файл `.github/workflows/pages.yml` собирает проект с `VITE_BASE=/site-cozy-/` и публикует `dist`.
 
 ## Свой домен (позже)
 
