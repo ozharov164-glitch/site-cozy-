@@ -54,14 +54,9 @@ export function SiteChrome() {
             href="#top"
             className="group flex shrink-0 items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080a]"
           >
-            <img
-              src={assetUrl('brand-bot-icon.png')}
-              alt=""
-              width={32}
-              height={32}
-              className="h-8 w-8 rounded-full object-cover ring-2 ring-teal-300/20 transition-transform group-hover:scale-105 sm:h-9 sm:w-9"
-              decoding="async"
-            />
+            <div className="bot-icon-frame h-8 w-8 shrink-0 ring-2 ring-teal-300/20 transition-transform group-hover:scale-105 sm:h-9 sm:w-9">
+              <img src={assetUrl('brand-bot-icon.png')} alt="" width={72} height={72} decoding="async" />
+            </div>
             <span className="flex flex-col leading-none">
               <span className="font-display text-lg font-medium tracking-tight text-gradient-gold sm:text-xl">ВключиСебя</span>
               <span className="mt-0.5 hidden text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-zinc-600 sm:block">

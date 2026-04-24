@@ -12,14 +12,9 @@ export function Footer() {
       />
       <div className="mx-auto max-w-7xl px-6 py-16 md:flex md:items-start md:justify-between md:gap-12 md:px-10 md:py-20 lg:px-12">
         <div className="mb-12 flex max-w-md gap-4 md:mb-0">
-          <img
-            src={assetUrl('brand-bot-icon.png')}
-            alt=""
-            width={56}
-            height={56}
-            className="h-14 w-14 shrink-0 rounded-2xl object-cover ring-2 ring-teal-300/20"
-            decoding="async"
-          />
+          <div className="bot-icon-frame h-14 w-14 shrink-0 ring-2 ring-teal-300/25">
+            <img src={assetUrl('brand-bot-icon.png')} alt="" width={112} height={112} decoding="async" />
+          </div>
           <div>
             <p className="font-display text-2xl font-medium text-gradient-gold">ВключиСебя</p>
             <p className="mt-2 text-sm font-light leading-relaxed text-zinc-500">

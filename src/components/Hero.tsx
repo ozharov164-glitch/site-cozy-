@@ -128,21 +128,22 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.95, delay: 0.35 }}
         >
-          <div className="relative w-full">
+          <div className="relative w-full max-w-[260px] sm:max-w-[280px]">
             <div
-              className="pointer-events-none absolute -inset-8 rounded-full bg-gradient-to-b from-teal-300/20 via-violet-500/15 to-transparent blur-3xl"
+              className="pointer-events-none absolute -inset-10 rounded-full bg-gradient-to-b from-teal-300/18 via-violet-500/12 to-transparent blur-3xl"
               aria-hidden
             />
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-b from-white/12 to-zinc-950/90 p-3 shadow-[0_32px_64px_-24px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/10">
-              <img
-                src={assetUrl('brand-bot-icon.png')}
-                alt="Иконка бота «ВключиСебя»: сердце и росток"
-                width={512}
-                height={512}
-                className="aspect-square w-full rounded-[1.5rem] object-cover"
-                decoding="async"
-                fetchPriority="high"
-              />
+            <div className="relative overflow-hidden rounded-full border border-white/12 bg-gradient-to-b from-white/[0.07] to-zinc-950/95 p-1 shadow-[0_28px_56px_-22px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/10">
+              <div className="bot-icon-frame aspect-square w-full">
+                <img
+                  src={assetUrl('brand-bot-icon.png')}
+                  alt="Иконка бота «ВключиСебя»: сердце и росток"
+                  width={512}
+                  height={512}
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </div>
             </div>
             <p className="mt-5 text-center text-xs font-light leading-relaxed text-zinc-500">
               Символ бота — забота о себе и бережный рост в одном знаке.
