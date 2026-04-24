@@ -80,7 +80,7 @@ export function Hero() {
           >
             <span className="text-gradient-gold">ВключиСебя</span>
             <span className="mt-4 block max-w-2xl font-display text-[1.5rem] font-normal leading-snug tracking-normal text-zinc-300 sm:text-3xl md:mt-5 md:text-[2.05rem] lg:text-[2.25rem]">
-              место, где внутренний шум стихает — и остаётесь вы, только чуть яснее
+              место, где стихает внутренний шум, — вы остаётесь собой, только чуть яснее
             </span>
           </motion.h1>
           <motion.p
@@ -90,7 +90,7 @@ export function Hero() {
             transition={{ duration: 0.85, delay: 0.42 }}
           >
             Бот с ИИ-поддержкой, чек-инами и мини-приложением <strong className="font-medium text-zinc-300">«Путь к Себе»</strong> — с
-            тестами, практиками и <strong className="font-medium text-zinc-300">ИИ-Венерой</strong>, которая ведёт вас шаг за шагом, без
+            тестами, практиками и <strong className="font-medium text-zinc-300">ИИ-Венерой</strong>, которая сопровождает вас шаг за шагом, без
             спешки и оценок.
           </motion.p>
           <motion.div
@@ -136,7 +136,7 @@ export function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-b from-white/12 to-zinc-950/90 p-3 shadow-[0_32px_64px_-24px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/10">
               <img
                 src={assetUrl('brand-bot-icon.png')}
-                alt="Иконка бота ВключиСебя — сердце и рост"
+                alt="Иконка бота «ВключиСебя»: сердце и росток"
                 width={512}
                 height={512}
                 className="aspect-square w-full rounded-[1.5rem] object-cover"
@@ -145,7 +145,7 @@ export function Hero() {
               />
             </div>
             <p className="mt-5 text-center text-xs font-light leading-relaxed text-zinc-500">
-              Символ бота: забота о себе и бережный рост — в одном знаке.
+              Символ бота — забота о себе и бережный рост в одном знаке.
             </p>
           </div>
         </motion.div>

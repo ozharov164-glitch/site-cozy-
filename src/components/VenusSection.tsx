@@ -21,46 +21,46 @@ export function VenusSection() {
           <div className="order-2 text-center lg:order-1 lg:text-left">
             <SectionLabel variant="twilight">ИИ-Венера</SectionLabel>
             <h2 className="mt-3 font-display text-[2rem] font-medium leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[3.5rem]">
-              Коуч, от которого{' '}
-              <span className="text-gradient-ethereal">перехватывает дыхание</span>
+              <span className="text-gradient-ethereal">Венера</span> — ваш коуч, после разговора с которой у вас{' '}
+              <span className="text-white">перехватывает дыхание</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-zinc-300 lg:mx-0 lg:max-w-none lg:text-xl lg:leading-relaxed">
-              Венера — не сухой чат-бот и не безликая «модель». Это образ <strong className="font-medium text-zinc-200">мягкой ясности</strong>:
-              она помнит ваши тесты, практики и шаги в «Пути к Себе», говорит тепло и по делу, без морали, без эзотерики и без давления «успеть
-              до дедлайна по саморазвитию».
+              Венера — не сухой чатбот и не безликая «модель». Это образ{' '}
+              <strong className="font-medium text-zinc-200">мягкой ясности</strong>: она помнит ваши тесты, практики и шаги в «Пути к Себе»,
+              говорит тепло и по делу — без морали, без эзотерики и без давления «успеть к дедлайну по саморазвитию».
             </p>
             <p className="mx-auto mt-5 max-w-xl text-base font-light leading-relaxed text-zinc-400 lg:mx-0 lg:max-w-none lg:text-lg">
               Она подхватывает вас после диагностик, помогает разложить по полочкам то, что крутится в голове, и предлагает{' '}
               <span className="text-teal-200/90">следующий маленький шаг</span> — такой, который реально сделать сегодня. В диалоге можно
-              говорить голосом души: о страхах, усталости, отношениях с собой и близкими — и чувствовать, что вас не оценивают, а слышат.
+              говорить от души — о страхах, усталости, отношениях с собой и с близкими, — и чувствовать, что вас не оценивают, а слышат.
             </p>
 
             <blockquote className="glass-quote mx-auto mt-10 max-w-xl rounded-r-2xl px-6 py-5 text-left lg:mx-0">
               <p className="font-display text-xl font-normal italic leading-snug text-zinc-200 md:text-2xl">
-                «Как будто наконец-то можно выдохнуть вслух — и не бояться, что ответят шаблоном.»
+                «Как будто наконец можно выдохнуть вслух — и не бояться, что ответят шаблоном.»
               </p>
-              <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">Так чувствуют себя пользователи</p>
+              <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">Так откликаются пользователи</p>
             </blockquote>
 
             <ul className="mx-auto mt-10 max-w-xl space-y-3 text-left text-sm font-light leading-relaxed text-zinc-400 lg:mx-0 lg:text-[0.95rem]">
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-teal-300 to-violet-400" aria-hidden />
                 <span>
-                  <strong className="font-medium text-zinc-300">Контекст, а не пустой лист:</strong> Венера видит вашу картину в приложении —
-                  прогресс, тесты, треки — и не притворяется, что вы только что «появились из ниоткуда».
+                  <strong className="font-medium text-zinc-300">Контекст, а не пустой лист.</strong> Венера видит вашу картину в приложении —
+                  прогресс, тесты и треки — и не притворяется, что вы только что «появились из ниоткуда».
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-teal-300 to-violet-400" aria-hidden />
                 <span>
-                  <strong className="font-medium text-zinc-300">Тон «опоры», не «учителя»:</strong> без назиданий и панибратства — спокойная
-                  уверенность рядом.
+                  <strong className="font-medium text-zinc-300">Тон опоры, а не «учителя».</strong> Без назиданий и панибратства — только
+                  спокойная уверенность рядом.
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-teal-300 to-violet-400" aria-hidden />
                 <span>
-                  <strong className="font-medium text-zinc-300">Мост в практики:</strong> из разговора можно перейти к тестам, голосу,
+                  <strong className="font-medium text-zinc-300">Мост в практики.</strong> Из разговора можно перейти к тестам, голосу,
                   «Ритму сердца» и другим разделам — без потери нити.
                 </span>
               </li>
@@ -84,7 +84,7 @@ export function VenusSection() {
                 <div className="relative overflow-hidden rounded-[1.65rem] md:rounded-[1.85rem]">
                   <img
                     src={assetUrl('ai-venus.png')}
-                    alt="ИИ-Венера — персональный коуч в приложении «Путь к Себе»"
+                    alt="ИИ-Венера — персональный коуч в мини-приложении «Путь к Себе»"
                     width={760}
                     height={760}
                     className="aspect-square w-full object-cover object-top"
