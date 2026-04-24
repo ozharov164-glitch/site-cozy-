@@ -1,11 +1,13 @@
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { assetUrl } from '../lib/assets'
 
 const BOT = 'https://t.me/CozyReset_bot'
 
 const nav = [
   { href: '#idea', label: 'Идея' },
   { href: '#bot', label: 'Бот' },
+  { href: '#venus', label: 'Венера' },
   { href: '#path', label: 'Путь' },
   { href: '#plans', label: 'Тарифы' },
 ]
@@ -26,7 +28,7 @@ export function SiteChrome() {
   }, [scrollY])
 
   useEffect(() => {
-    const mq = window.matchMedia('(max-width: 768px)')
+    const mq = window.matchMedia('(max-width: 1024px)')
     const fn = () => setNarrow(mq.matches)
     fn()
     mq.addEventListener('change', fn)
@@ -36,7 +38,7 @@ export function SiteChrome() {
   return (
     <>
       <motion.div
-        className="pointer-events-none fixed left-0 right-0 top-0 z-[80] h-[2px] origin-left bg-gradient-to-r from-gold/25 via-gold to-gold-light/90 shadow-[0_0_12px_rgba(201,169,98,0.35)]"
+        className="pointer-events-none fixed left-0 right-0 top-0 z-[80] h-[2px] origin-left bg-gradient-to-r from-teal-300/50 via-gold/80 to-violet-400/60 shadow-[0_0_14px_rgba(126,201,184,0.35)]"
         style={{ scaleX }}
       />
 
@@ -50,10 +52,22 @@ export function SiteChrome() {
         <div className="mx-auto flex h-[3.25rem] max-w-7xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6 md:px-10 lg:px-12">
           <a
             href="#top"
-            className="group flex shrink-0 items-baseline gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080a]"
+            className="group flex shrink-0 items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080a]"
           >
-            <span className="font-display text-lg font-medium tracking-tight text-gradient-gold sm:text-xl">ВключиСебя</span>
-            <span className="hidden text-[0.65rem] font-medium uppercase tracking-[0.18em] text-zinc-600 sm:inline">CozyReset</span>
+            <img
+              src={assetUrl('brand-bot-icon.png')}
+              alt=""
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded-full object-cover ring-2 ring-teal-300/20 transition-transform group-hover:scale-105 sm:h-9 sm:w-9"
+              decoding="async"
+            />
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-lg font-medium tracking-tight text-gradient-gold sm:text-xl">ВключиСебя</span>
+              <span className="mt-0.5 hidden text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-zinc-600 sm:block">
+                CozyReset
+              </span>
+            </span>
           </a>
 
           {!narrow && (
@@ -74,9 +88,9 @@ export function SiteChrome() {
             href={BOT}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-nav-cta group relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full px-4 py-2 text-[0.8125rem] font-semibold text-[#0c0c0e] shadow-[0_0_24px_-6px_rgba(201,169,98,0.45)] sm:px-5 sm:text-sm"
+            className="btn-nav-cta group relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full px-4 py-2 text-[0.8125rem] font-semibold text-[#0a1210] shadow-[0_0_24px_-6px_rgba(126,201,184,0.4)] sm:px-5 sm:text-sm"
           >
-            <span className="absolute inset-0 bg-gradient-to-br from-[#f4ebd4] via-[#d4b76e] to-[#9a7b3c] transition-transform duration-300 group-hover:scale-105" />
+            <span className="absolute inset-0 bg-gradient-to-br from-[#d4f5ee] via-[#7ec9b8] to-[#3d6b5f] transition-transform duration-300 group-hover:scale-105" />
             <span className="relative">В Telegram</span>
           </a>
         </div>

@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { assetUrl } from '../lib/assets'
 
 const BOT_URL = 'https://t.me/CozyReset_bot'
 
@@ -12,7 +13,7 @@ export function Hero() {
     >
       <div className="pointer-events-none absolute inset-0 hero-vignette" aria-hidden />
       <div className="pointer-events-none absolute inset-0 gradient-mesh" aria-hidden />
-      <div className="pointer-events-none absolute inset-0 hero-grid opacity-[0.35]" aria-hidden />
+      <div className="pointer-events-none absolute inset-0 hero-grid opacity-[0.32]" aria-hidden />
 
       <motion.div
         className="pointer-events-none absolute right-[8%] top-28 h-[min(440px,55vw)] w-[min(440px,55vw)] rounded-full bg-[var(--color-glow)] blur-[110px]"
@@ -21,99 +22,132 @@ export function Hero() {
             ? {}
             : {
                 scale: [1, 1.06, 1],
-                opacity: [0.38, 0.52, 0.38],
+                opacity: [0.35, 0.5, 0.35],
               }
         }
         transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="pointer-events-none absolute bottom-[12%] left-[3%] h-[min(340px,50vw)] w-[min(340px,50vw)] rounded-full bg-violet-500/[0.09] blur-[100px]"
+        className="pointer-events-none absolute bottom-[12%] left-[3%] h-[min(340px,50vw)] w-[min(340px,50vw)] rounded-full bg-teal-400/[0.07] blur-[100px]"
         animate={
           reduce
             ? {}
             : {
                 scale: [1.04, 1, 1.04],
-                opacity: [0.22, 0.38, 0.22],
+                opacity: [0.2, 0.36, 0.2],
               }
         }
         transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="pointer-events-none absolute left-1/2 top-1/3 h-[min(200px,40vw)] w-[min(200px,40vw)] -translate-x-1/2 rounded-full bg-amber-200/[0.04] blur-[80px]"
-        animate={reduce ? {} : { opacity: [0.15, 0.28, 0.15] }}
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[min(200px,40vw)] w-[min(200px,40vw)] -translate-x-1/2 rounded-full bg-violet-400/[0.06] blur-[80px]"
+        animate={reduce ? {} : { opacity: [0.12, 0.24, 0.12] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-4xl">
-        <motion.div
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-sm"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.05 }}
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/40 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400/90" />
-          </span>
-          <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-zinc-400">
-            Доступно в Telegram
-          </span>
-        </motion.div>
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,280px)] lg:items-center lg:gap-16">
+        <div>
+          <motion.div
+            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/[0.1] bg-white/[0.04] px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-md"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.05 }}
+          >
+            <img
+              src={assetUrl('brand-bot-icon.png')}
+              alt=""
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-full object-cover ring-2 ring-teal-300/25 shadow-lg"
+              decoding="async"
+            />
+            <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-zinc-400">ВключиСебя в Telegram</span>
+          </motion.div>
 
-        <motion.p
-          className="mb-5 text-sm font-medium uppercase tracking-[0.28em] text-gold-light/85 md:text-base md:tracking-[0.25em]"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.12 }}
-        >
-          ИИ · чек-ины · «Путь к Себе»
-        </motion.p>
-        <motion.h1
-          className="mb-8 font-display text-[2.65rem] font-medium leading-[1.02] tracking-[-0.02em] text-white sm:text-6xl md:text-7xl lg:text-[5.25rem] lg:leading-[1.02]"
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.2 }}
-        >
-          <span className="text-gradient-gold">ВключиСебя</span>
-          <span className="mt-4 block max-w-xl font-display text-[1.55rem] font-normal leading-snug tracking-normal text-zinc-300 sm:text-3xl md:mt-5 md:text-[2.1rem] lg:text-[2.35rem]">
-            спокойная самоподдержка рядом с вами — в чате и в приложении
-          </span>
-        </motion.h1>
-        <motion.p
-          className="mb-12 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:text-xl md:leading-relaxed"
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.42 }}
-        >
-          Бот с ИИ-поддержкой, утренними и вечерними чек-инами и мини-приложением «Путь к Себе». Для тех, кому важны
-          ясность, мягкость и уважение к своему темпу.
-        </motion.p>
-        <motion.div
-          className="flex flex-wrap items-center gap-3 sm:gap-4"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.58 }}
-        >
-          <a
-            href={BOT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-8 py-4 text-base font-semibold text-[#0c0c0e] shadow-[0_0_48px_-10px_rgba(201,169,98,0.55)]"
+          <motion.p
+            className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-teal-200/75 md:text-base md:tracking-[0.24em]"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.12 }}
           >
-            <span className="absolute inset-0 bg-gradient-to-br from-[#faf3e4] via-[#d9bc6e] to-[#8f7030] transition-transform duration-300 group-hover:scale-[1.03]" />
-            <span className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span className="absolute -left-1/2 top-0 h-full w-1/2 skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-[220%]" />
+            Психология · ИИ · забота о себе
+          </motion.p>
+          <motion.h1
+            className="mb-7 font-display text-[2.55rem] font-medium leading-[1.02] tracking-[-0.02em] text-white sm:text-6xl md:text-7xl lg:text-[5.1rem] lg:leading-[1.02]"
+            initial={{ opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.2 }}
+          >
+            <span className="text-gradient-gold">ВключиСебя</span>
+            <span className="mt-4 block max-w-2xl font-display text-[1.5rem] font-normal leading-snug tracking-normal text-zinc-300 sm:text-3xl md:mt-5 md:text-[2.05rem] lg:text-[2.25rem]">
+              место, где внутренний шум стихает — и остаётесь вы, только чуть яснее
             </span>
-            <span className="relative">Открыть в Telegram</span>
-            <span className="relative transition-transform duration-300 group-hover:translate-x-0.5">→</span>
-          </a>
-          <a
-            href="#path"
-            className="group inline-flex items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.02] px-8 py-4 text-base font-medium text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-all duration-300 hover:border-gold/35 hover:bg-white/[0.05] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/45"
+          </motion.h1>
+          <motion.p
+            className="mb-10 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:text-xl md:leading-relaxed"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.42 }}
           >
-            «Путь к Себе»
-            <span className="ml-1.5 text-gold/70 transition-transform group-hover:translate-y-0.5">↓</span>
-          </a>
+            Бот с ИИ-поддержкой, чек-инами и мини-приложением <strong className="font-medium text-zinc-300">«Путь к Себе»</strong> — с
+            тестами, практиками и <strong className="font-medium text-zinc-300">ИИ-Венерой</strong>, которая ведёт вас шаг за шагом, без
+            спешки и оценок.
+          </motion.p>
+          <motion.div
+            className="flex flex-wrap items-center gap-3 sm:gap-4"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.58 }}
+          >
+            <a
+              href={BOT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-8 py-4 text-base font-semibold text-[#0c0c0e] shadow-[0_0_48px_-10px_rgba(126,201,184,0.45)]"
+            >
+              <span className="absolute inset-0 bg-gradient-to-br from-[#d4f5ee] via-[#7ec9b8] to-[#3d7a6c] transition-transform duration-300 group-hover:scale-[1.03]" />
+              <span className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span className="absolute -left-1/2 top-0 h-full w-1/2 skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-[220%]" />
+              </span>
+              <span className="relative">Открыть в Telegram</span>
+              <span className="relative transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
+              href="#venus"
+              className="group inline-flex items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.03] px-7 py-4 text-base font-medium text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-all duration-300 hover:border-violet-300/30 hover:bg-violet-500/[0.06] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/45"
+            >
+              Познакомиться с Венерой
+              <span className="ml-1.5 text-teal-300/80 transition-transform group-hover:translate-y-0.5">↓</span>
+            </a>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="mx-auto flex w-full max-w-[280px] flex-col items-center justify-center lg:mx-0 lg:max-w-none"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.95, delay: 0.35 }}
+        >
+          <div className="relative w-full">
+            <div
+              className="pointer-events-none absolute -inset-8 rounded-full bg-gradient-to-b from-teal-300/20 via-violet-500/15 to-transparent blur-3xl"
+              aria-hidden
+            />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-b from-white/12 to-zinc-950/90 p-3 shadow-[0_32px_64px_-24px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/10">
+              <img
+                src={assetUrl('brand-bot-icon.png')}
+                alt="Иконка бота ВключиСебя — сердце и рост"
+                width={512}
+                height={512}
+                className="aspect-square w-full rounded-[1.5rem] object-cover"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </div>
+            <p className="mt-5 text-center text-xs font-light leading-relaxed text-zinc-500">
+              Символ бота: забота о себе и бережный рост — в одном знаке.
+            </p>
+          </div>
         </motion.div>
       </div>
 
@@ -126,7 +160,7 @@ export function Hero() {
       >
         <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em]">Листайте</span>
         <motion.span
-          className="block h-14 w-px bg-gradient-to-b from-gold/60 via-gold/25 to-transparent"
+          className="block h-14 w-px bg-gradient-to-b from-teal-300/50 via-violet-300/30 to-transparent"
           animate={reduce ? {} : { y: [0, 5, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
         />

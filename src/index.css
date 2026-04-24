@@ -3,12 +3,16 @@
 @theme {
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Manrope', system-ui, sans-serif;
-  --color-ink: #0a0a0c;
-  --color-surface: #0e0e12;
+  --color-ink: #07070d;
+  --color-surface: #0c0c14;
   --color-muted: #8b8b9a;
   --color-gold: #c9a962;
   --color-gold-light: #e8dcc4;
   --color-glow: rgba(201, 169, 98, 0.16);
+  --color-mint: #7ec9b8;
+  --color-mint-soft: #a8e0d4;
+  --color-heather: #b8a9d9;
+  --color-twilight: #6b5a9e;
 }
 
 html {
@@ -19,6 +23,10 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   background-color: var(--color-ink);
+  background-image:
+    radial-gradient(ellipse 100% 80% at 50% -30%, rgba(99, 80, 140, 0.18), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 0% 60%, rgba(126, 201, 184, 0.06), transparent 45%),
+    radial-gradient(ellipse 60% 40% at 100% 80%, rgba(201, 169, 98, 0.05), transparent 40%);
   color: #f4f4f5;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -32,25 +40,25 @@ body {
   z-index: 100;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  background: #c9a962;
-  color: #0c0c0e;
+  background: linear-gradient(135deg, #7ec9b8, #5a9d8f);
+  color: #0a1210;
   font-weight: 600;
 }
 
 .skip-to-main:focus {
   left: 1rem;
-  outline: 2px solid #f4e4bc;
+  outline: 2px solid #e8dcc4;
   outline-offset: 2px;
 }
 
 ::selection {
-  background: rgba(201, 169, 98, 0.38);
-  color: #0c0c0e;
+  background: rgba(126, 201, 184, 0.35);
+  color: #0a0a0e;
 }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid rgba(201, 169, 98, 0.55);
+  outline: 2px solid rgba(184, 169, 217, 0.65);
   outline-offset: 3px;
 }
 
@@ -59,31 +67,38 @@ button:focus-visible {
   position: fixed;
   inset: 0;
   z-index: 50;
-  opacity: 0.045;
+  opacity: 0.038;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 .hero-vignette {
-  background: radial-gradient(ellipse 85% 70% at 50% 45%, transparent 0%, rgba(5, 5, 8, 0.5) 100%);
+  background: radial-gradient(ellipse 90% 75% at 50% 40%, transparent 0%, rgba(4, 4, 10, 0.65) 100%);
 }
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 20%, transparent 70%);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 78% 68% at 50% 32%, black 18%, transparent 72%);
 }
 
 .gradient-mesh {
   background:
-    radial-gradient(ellipse 85% 55% at 50% -15%, rgba(201, 169, 98, 0.2), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 100% 40%, rgba(110, 85, 150, 0.11), transparent 50%),
-    radial-gradient(ellipse 45% 35% at 0% 85%, rgba(201, 169, 98, 0.09), transparent 45%);
+    radial-gradient(ellipse 90% 58% at 50% -18%, rgba(126, 201, 184, 0.14), transparent 52%),
+    radial-gradient(ellipse 55% 48% at 100% 38%, rgba(110, 85, 150, 0.14), transparent 50%),
+    radial-gradient(ellipse 48% 38% at 0% 88%, rgba(201, 169, 98, 0.1), transparent 46%);
 }
 
 .text-gradient-gold {
   background: linear-gradient(135deg, #faf4e8 0%, #e8d5a8 22%, #c9a962 52%, #8a6a32 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-ethereal {
+  background: linear-gradient(135deg, #d4f5ee 0%, #a8e0d4 25%, #b8a9d9 55%, #c9a962 88%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -98,9 +113,9 @@ button:focus-visible {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(201, 169, 98, 0.25) 20%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(201, 169, 98, 0.25) 80%,
+    rgba(126, 201, 184, 0.2) 18%,
+    rgba(201, 169, 98, 0.22) 50%,
+    rgba(184, 169, 217, 0.2) 82%,
     transparent
   );
 }
@@ -118,10 +133,10 @@ button:focus-visible {
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(201, 169, 98, 0.45),
-    rgba(201, 169, 98, 0.08) 35%,
-    rgba(120, 90, 160, 0.15) 70%,
-    rgba(201, 169, 98, 0.25)
+    rgba(126, 201, 184, 0.35),
+    rgba(184, 169, 217, 0.2) 40%,
+    rgba(201, 169, 98, 0.25) 78%,
+    rgba(110, 85, 150, 0.35)
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -136,7 +151,54 @@ button:focus-visible {
 
 .path-spotlight-glow {
   box-shadow:
-    0 0 0 1px rgba(201, 169, 98, 0.06),
-    0 32px 80px -32px rgba(201, 169, 98, 0.15),
-    0 24px 64px -40px rgba(0, 0, 0, 0.8);
+    0 0 0 1px rgba(126, 201, 184, 0.08),
+    0 32px 80px -32px rgba(110, 85, 150, 0.2),
+    0 24px 64px -40px rgba(0, 0, 0, 0.85);
+}
+
+.cosmic-section {
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(110, 85, 150, 0.22), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(45, 35, 80, 0.5), transparent 50%),
+    linear-gradient(180deg, #0a0818 0%, #0c0a14 50%, #080810 100%);
+}
+
+.stars-dust {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 25% 65%, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1.5px 1.5px at 40% 35%, rgba(200, 190, 255, 0.4), transparent),
+    radial-gradient(1px 1px at 55% 12%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 72% 48%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 88% 28%, rgba(168, 224, 212, 0.35), transparent),
+    radial-gradient(1px 1px at 95% 75%, rgba(255, 255, 255, 0.22), transparent),
+    radial-gradient(1px 1px at 15% 88%, rgba(255, 255, 255, 0.18), transparent);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+}
+
+.venus-halo {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 60px -10px rgba(184, 169, 217, 0.45),
+    0 0 100px -20px rgba(126, 201, 184, 0.25),
+    0 40px 80px -30px rgba(0, 0, 0, 0.9);
+}
+
+.glass-quote {
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, rgba(126, 201, 184, 0.9), rgba(184, 169, 217, 0.7)) 1;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent);
 }
