@@ -45,6 +45,12 @@ export function Hero() {
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
+      {/* Снизу на мобилке: дуга маски hero-grid и хвосты blur доходят до «Листайте» — вуаль только до breakpoint md */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-44 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/88 to-transparent md:hidden"
+        aria-hidden
+      />
+
       <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,280px)] lg:items-center lg:gap-16">
         <div>
           <motion.div
@@ -128,9 +134,9 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.95, delay: 0.35 }}
         >
-          <div className="relative w-full max-w-[260px] sm:max-w-[280px]">
+          <div className="relative w-full max-w-[260px] overflow-hidden pb-0.5 sm:max-w-[280px] md:overflow-visible md:pb-0">
             <div
-              className="pointer-events-none absolute -inset-10 rounded-full bg-gradient-to-b from-teal-300/18 via-violet-500/12 to-transparent blur-3xl"
+              className="pointer-events-none absolute -inset-6 rounded-full bg-gradient-to-b from-teal-300/18 via-violet-500/12 to-transparent blur-3xl md:-inset-10"
               aria-hidden
             />
             <div className="relative overflow-hidden rounded-full border border-white/12 bg-gradient-to-b from-white/[0.07] to-zinc-950/95 p-1 shadow-[0_28px_56px_-22px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/10">
@@ -153,7 +159,7 @@ export function Hero() {
       </div>
 
       <motion.div
-        className="pointer-events-none absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-zinc-600"
+        className="pointer-events-none absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-zinc-600"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.35, duration: 0.8 }}
