@@ -18,9 +18,9 @@ export function SiteChrome() {
   const [scrolled, setScrolled] = useState(false)
 
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 32,
-    mass: 0.35,
+    stiffness: 90,
+    damping: 28,
+    mass: 0.42,
   })
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export function SiteChrome() {
             href={BOT}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-nav-cta group relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full px-4 py-2 text-[0.8125rem] font-semibold text-[#0a1210] shadow-[0_0_24px_-6px_rgba(126,201,184,0.4)] sm:px-5 sm:text-sm"
+            className="group relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full px-4 py-2 text-[0.8125rem] font-semibold text-[#0a1210] shadow-[0_0_24px_-6px_rgba(126,201,184,0.4)] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[#08080a] sm:px-5 sm:text-sm"
           >
             <span className="absolute inset-0 bg-gradient-to-br from-[#d4f5ee] via-[#7ec9b8] to-[#3d6b5f] transition-transform duration-300 group-hover:scale-105" />
             <span className="relative">В Telegram</span>

@@ -18,27 +18,27 @@ const botFeatures: FeatureItem[] = [
   },
   {
     title: 'ИИ-поддержка',
-    text: 'Диалог в чате с ИИ: бережно, без давления и без оценки. В бесплатном режиме — с разумными дневными лимитами, чтобы формат оставался устойчивым.',
+    text: 'Диалог в чате с ИИ: бережно, без давления и без оценки. В бесплатном режиме действуют разумные дневные лимиты — так формат остаётся устойчивым и не перегружает.',
     icon: 'chat',
   },
   {
     title: 'Голосовая поддержка',
-    text: 'Опишите запрос текстом — получите ответ голосом с тихим музыкальным фоном. В Премиуме — больше сценариев и выбор в мини-приложении.',
+    text: 'Опишите запрос текстом — получите ответ голосом с тихим музыкальным фоном. В Премиуме доступны расширенные сценарии и дополнительные настройки в мини-приложении.',
     icon: 'voice',
   },
   {
     title: 'Тест состояния',
-    text: 'Короткий замер по шкалам, сохранение результата и сравнение с прошлым прохождением — чтобы замечать динамику, а не только думать: «сегодня всё плохо».',
+    text: 'Короткий замер по шкалам, сохранение результата и сравнение с прошлым прохождением — чтобы замечать динамику, а не застревать на мысли: «сегодня всё плохо».',
     icon: 'chart',
   },
   {
     title: 'Вдохновение',
-    text: 'Аффирмация дня с учётом контекста; понравившиеся формулировки можно сохранять — собирать свою коллекцию опорных фраз.',
+    text: 'Аффирмация дня с учётом контекста; понравившиеся формулировки можно сохранять и собирать свою коллекцию опорных фраз.',
     icon: 'spark',
   },
   {
     title: 'Тарифы и Премиум',
-    text: 'Понятный статус подписки, оплата картой, СБП или через Telegram Stars — выбирайте, как вам спокойнее.',
+    text: 'Понятный статус подписки: оплата картой, через СБП или Telegram Stars — выберите тот способ, который вам спокойнее.',
     icon: 'card',
   },
 ]
@@ -46,13 +46,13 @@ const botFeatures: FeatureItem[] = [
 const pathFeatures: FeatureItem[] = [
   {
     title: 'Тесты и история',
-    text: 'Расширенная библиотека диагностик: тревога, выгорание, самооценка и другие темы. Каждый проход сохраняется — можно вернуться к формулировкам и сравнить результаты с прошлым прохождением.',
+    text: 'Расширенная библиотека диагностик: тревога, выгорание, самооценка и другие темы. Каждый проход сохраняется — можно вернуться к формулировкам и сравнить результат с прошлым прохождением.',
     icon: 'chart',
     tone: 'twilight',
   },
   {
     title: 'Нейро-Арена',
-    text: 'Лёгкие тренажёры внимания и быстрой интерпретации сигналов в игровом формате — не «ещё работа», а короткая пауза для мозга с ощущением маленькой победы.',
+    text: 'Лёгкие тренажёры внимания и быстрой интерпретации сигналов в игровом формате: не «ещё работа», а короткая пауза для мозга с ощущением маленькой победы.',
     icon: 'spark',
     tone: 'twilight',
   },
@@ -64,7 +64,7 @@ const pathFeatures: FeatureItem[] = [
   },
   {
     title: 'Самореализация',
-    text: 'Пошаговый трек с заданиями и фиксацией прогресса: не бесконечный чат, а маршрут с вопросами «на потом» и с ИИ, который подстраивает формулировки под ваш контекст.',
+    text: 'Пошаговый трек с заданиями и фиксацией прогресса: не бесконечный чат, а маршрут с вопросами «на потом» и ИИ, который подстраивает формулировки под ваш контекст.',
     icon: 'steps',
     tone: 'twilight',
   },
@@ -111,13 +111,13 @@ function PathNarrative() {
             с вашим аккаунтом в боте: данные не теряются при переходе из бота в приложение и обратно.
           </p>
           <p className="mt-5 text-base font-light leading-relaxed text-zinc-400 md:text-lg">
-            Здесь удобно возвращаться к себе <strong className="font-medium text-zinc-200">регулярно</strong> — не раз в месяц «вспомнить
-            про заботу о себе», а понемногу, в своём темпе: открыли приложение, отметили настроение, сделали практику, зафиксировали
-            инсайт — чтобы потом обсудить его с Венерой или взять с собой на приём к психологу.
+            Здесь удобно возвращаться к себе <strong className="font-medium text-zinc-200">регулярно</strong>: не раз в месяц «вспомнить
+            про заботу о себе», а понемногу и в своём темпе — открыли приложение, отметили настроение, сделали практику, зафиксировали
+            инсайт, чтобы потом обсудить его с Венерой или взять с собой на приём к психологу.
           </p>
         </div>
         <div className="rounded-2xl border border-white/[0.08] bg-gradient-to-br from-teal-950/30 via-zinc-950/50 to-violet-950/25 p-8 shadow-inner md:rounded-3xl md:p-10">
-          <p className="font-display text-xl font-medium italic leading-relaxed text-teal-100/95 md:text-2xl">
+          <p className="quote-reading text-xl font-medium italic leading-relaxed text-teal-100/95 md:text-2xl">
             «Путь к Себе» — это когда технологии не отвлекают от жизни, а помогают не потерять себя в шуме.
           </p>
           <ul className="mt-8 space-y-4 text-sm font-light leading-relaxed text-zinc-400 md:text-base">
@@ -131,8 +131,8 @@ function PathNarrative() {
             <li className="flex gap-3">
               <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-violet-400/70" aria-hidden />
               <span>
-                ИИ-Венера в приложении опирается на <strong className="font-medium text-zinc-300">вашу историю</strong> — тесты, треки,
-                практики, — и не подменяет её шаблонными фразами «из интернета».
+                ИИ-Венера в приложении опирается на <strong className="font-medium text-zinc-300">вашу историю</strong>: тесты, треки и
+                практики — и не подменяет её шаблонными фразами «из интернета».
               </span>
             </li>
           </ul>
@@ -167,10 +167,38 @@ export default function App() {
             </h2>
             <p className="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:mt-10 md:text-xl md:leading-relaxed">
               ВключиСебя — инструмент психологической и эмоциональной <strong className="font-medium text-zinc-300">самоподдержки</strong>{' '}
-              на базе ИИ: с чек-инами, тестами и бережными формулировками. Сервис не заменяет очную или онлайн-консультацию специалиста —
-              особенно при острых состояниях и риске для себя или других. Он даёт структуру и тепло в повседневности, чтобы вам было чуть
-              легче дышать между встречами с живым специалистом.
+              на базе ИИ: чек-ины, тесты и бережные формулировки рядом с вами в телефоне. Сервис{' '}
+              <strong className="font-medium text-zinc-300">не заменяет</strong> очную или онлайн-консультацию специалиста — особенно при
+              острых состояниях и риске для себя или других. Он даёт структуру и тепло в повседневности, чтобы между сессиями с психологом
+              вам было чуть легче дышать и яснее ориентироваться в себе.
             </p>
+            <div className="mx-auto mt-12 max-w-2xl rounded-2xl border border-white/[0.07] bg-gradient-to-br from-teal-950/[0.12] via-zinc-950/40 to-violet-950/[0.1] px-6 py-8 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] md:mt-14 md:rounded-3xl md:px-8 md:py-9">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-teal-200/80">Вам может откликнуться, если</p>
+              <ul className="mt-5 space-y-3.5 text-base font-light leading-relaxed text-zinc-400 md:text-lg">
+                <li className="flex gap-3">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold/70" aria-hidden />
+                  <span>
+                    Вы устали от навязчивой «мотивации» и громких обещаний — и ищете{' '}
+                    <strong className="font-medium text-zinc-300">спокойный тон</strong>, в котором можно быть неидеальным.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-teal-400/70" aria-hidden />
+                  <span>
+                    Хочется <strong className="font-medium text-zinc-300">регулярно возвращаться к себе</strong> маленькими шагами: заметить
+                    настроение, пройти тест, сделать практику — без чувства вины за «недоделанное».
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-violet-400/65" aria-hidden />
+                  <span>
+                    Вы уже ходите к психологу или только присматриваетесь к терапии — и хотите{' '}
+                    <strong className="font-medium text-zinc-300">бережно подготовиться</strong>, собрать мысли и прийти на разговор с
+                    яснее сформулированным запросом.
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
@@ -189,8 +217,7 @@ export default function App() {
                 </h2>
               </div>
               <p className="max-w-md text-sm font-light leading-relaxed text-zinc-500 md:text-base">
-                Меню собрано так, чтобы каждый день можно было начать с малого — без перегруза опциями и без чувства вины за
-                «недоделанное».
+                Меню собрано так, чтобы каждый день можно было начать с малого: без перегруза опциями и без чувства вины за «недоделанное».
               </p>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
@@ -215,7 +242,7 @@ export default function App() {
                 «Путь к Себе»
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base font-light text-zinc-500 md:text-lg">
-                Пространство для регулярной работы с собой — глубже, чем один чат, но всё ещё в привычном Telegram.
+                Пространство для регулярной работы с собой: глубже, чем один чат, но по-прежнему в привычном Telegram.
               </p>
             </div>
 
@@ -235,8 +262,8 @@ export default function App() {
                   Один вход — разные глубины: от короткой паузы до подготовки к терапии
                 </h3>
                 <p className="relative mt-6 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:mt-8 md:text-xl">
-                  Откройте бота, при необходимости оформите Премиум — и попадёте в интерфейс, где сочетаются научно обоснованные тесты,
-                  телесные практики и ИИ-Венера, которая помнит ваш контекст. Это не волшебная таблетка, а{' '}
+                  Откройте бота, при необходимости оформите Премиум — и попадёте в интерфейс, где сочетаются диагностические тесты по
+                  проверенным методикам, телесные практики и ИИ-Венера, которая помнит ваш контекст. Это не волшебная таблетка, а{' '}
                   <strong className="font-medium text-zinc-300">набор инструментов</strong>, который остаётся с вами между встречами с
                   психологом.
                 </p>
@@ -276,7 +303,7 @@ export default function App() {
               Два уровня
             </h2>
             <p className="mx-auto mt-4 max-w-lg text-sm font-light text-zinc-500 md:text-base">
-              Начните бесплатно — расширьте возможности, когда почувствуете, что готовы углубиться.
+              Начните бесплатно и расширьте возможности, когда почувствуете, что готовы углубиться.
             </p>
 
             <div className="mt-14 grid gap-6 text-left md:mt-16 md:grid-cols-2 md:gap-8">
@@ -297,10 +324,12 @@ export default function App() {
                   Премиум
                 </div>
                 <h3 className="relative font-display text-2xl font-medium text-gradient-ethereal md:text-3xl">Полный доступ</h3>
-                <p className="relative mt-2 text-sm text-zinc-500">Для тех, кто хочет углубиться без лимитов в чате и с полным доступом к приложению</p>
+                <p className="relative mt-2 text-sm text-zinc-500">
+                  Для тех, кто хочет углубиться: без лимитов в чате и с полным доступом к мини-приложению.
+                </p>
                 <ul className="relative mt-8 space-y-4">
                   <ListItem>Безлимитная ИИ-поддержка в чате</ListItem>
-                  <ListItem>Полный доступ к «Пути к Себе» и к ИИ-Венере</ListItem>
+                  <ListItem>Полный доступ к «Пути к Себе» и ИИ-Венере</ListItem>
                   <ListItem>Персональные ритуалы в чек-инах</ListItem>
                   <ListItem>Реферальная программа для подписчиков</ListItem>
                 </ul>
@@ -316,14 +345,14 @@ export default function App() {
               Шаг в сторону заботы о себе
             </h2>
             <p className="relative mx-auto mt-6 max-w-md text-base font-light leading-relaxed text-zinc-400 md:text-lg">
-              Бот откроется в Telegram: мы подскажем первые шаги и поможем выбрать комфортный темп. Венера и «Путь к Себе» ждут вас там, где
-              вам уже привычно общаться — в переписке.
+              Бот откроется в Telegram: мы подскажем первые шаги и поможем выбрать комфортный темп. Венера и «Путь к Себе» рядом — в том же
+              мессенджере, без лишних приложений и новых паролей.
             </p>
             <a
               href={BOT}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative mt-10 inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-11 py-4 text-lg font-semibold text-[#0a1210] shadow-[0_0_56px_-12px_rgba(126,201,184,0.45)] transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              className="relative mt-10 inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-11 py-4 text-lg font-semibold text-[#0a1210] shadow-[0_0_56px_-12px_rgba(126,201,184,0.45)] transition-transform hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a10]"
             >
               <span className="absolute inset-0 bg-gradient-to-br from-[#d4f5ee] via-[#7ec9b8] to-[#355a50]" />
               <span className="relative">@CozyReset_bot</span>

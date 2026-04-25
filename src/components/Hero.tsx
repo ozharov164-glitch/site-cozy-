@@ -13,7 +13,10 @@ export function Hero() {
     >
       <div className="pointer-events-none absolute inset-0 hero-vignette" aria-hidden />
       <div className="pointer-events-none absolute inset-0 gradient-mesh" aria-hidden />
-      <div className="pointer-events-none absolute inset-0 hero-grid opacity-[0.32]" aria-hidden />
+      <div
+        className="pointer-events-none absolute inset-0 hero-grid opacity-[0.26] md:opacity-[0.32]"
+        aria-hidden
+      />
 
       <motion.div
         className="pointer-events-none absolute right-[8%] top-28 h-[min(440px,55vw)] w-[min(440px,55vw)] rounded-full bg-[var(--color-glow)] blur-[110px]"
@@ -25,7 +28,7 @@ export function Hero() {
                 opacity: [0.35, 0.5, 0.35],
               }
         }
-        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 14, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
       />
       <motion.div
         className="pointer-events-none absolute bottom-[12%] left-[3%] h-[min(340px,50vw)] w-[min(340px,50vw)] rounded-full bg-teal-400/[0.07] blur-[100px]"
@@ -37,12 +40,12 @@ export function Hero() {
                 opacity: [0.2, 0.36, 0.2],
               }
         }
-        transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 16, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
       />
       <motion.div
         className="pointer-events-none absolute left-1/2 top-1/3 h-[min(200px,40vw)] w-[min(200px,40vw)] -translate-x-1/2 rounded-full bg-violet-400/[0.06] blur-[80px]"
         animate={reduce ? {} : { opacity: [0.12, 0.24, 0.12] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 10, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
       />
 
       {/* Снизу на мобилке: дуга маски hero-grid и хвосты blur доходят до «Листайте» — вуаль только до breakpoint md */}
@@ -57,16 +60,11 @@ export function Hero() {
             className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/[0.1] bg-white/[0.04] px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-md"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.05 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 28, mass: 0.85, delay: 0.05 }}
           >
-            <img
-              src={assetUrl('brand-bot-icon.png')}
-              alt=""
-              width={36}
-              height={36}
-              className="h-9 w-9 rounded-full object-cover ring-2 ring-teal-300/25 shadow-lg"
-              decoding="async"
-            />
+            <div className="bot-icon-frame h-9 w-9 shrink-0 shadow-lg ring-2 ring-teal-300/25">
+              <img src={assetUrl('brand-bot-icon.png')} alt="" width={72} height={72} decoding="async" />
+            </div>
             <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-zinc-400">ВключиСебя в Telegram</span>
           </motion.div>
 
@@ -74,7 +72,7 @@ export function Hero() {
             className="mb-4 text-sm font-medium uppercase tracking-[0.28em] text-teal-200/75 md:text-base md:tracking-[0.24em]"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.12 }}
+            transition={{ type: 'spring', stiffness: 280, damping: 26, mass: 0.9, delay: 0.12 }}
           >
             Психология · ИИ · забота о себе
           </motion.p>
@@ -82,34 +80,34 @@ export function Hero() {
             className="mb-7 font-display text-[2.55rem] font-medium leading-[1.02] tracking-[-0.02em] text-white sm:text-6xl md:text-7xl lg:text-[5.1rem] lg:leading-[1.02]"
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 220, damping: 24, mass: 0.95, delay: 0.2 }}
           >
             <span className="text-gradient-gold">ВключиСебя</span>
             <span className="mt-4 block max-w-2xl font-display text-[1.5rem] font-normal leading-snug tracking-normal text-zinc-300 sm:text-3xl md:mt-5 md:text-[2.05rem] lg:text-[2.25rem]">
-              место, где стихает внутренний шум, — вы остаётесь собой, только чуть яснее
+              место, где утихает внутренний шум, — вы остаётесь собой, только чуть яснее
             </span>
           </motion.h1>
           <motion.p
             className="mb-10 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:text-xl md:leading-relaxed"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.42 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 28, mass: 0.9, delay: 0.42 }}
           >
             Бот с ИИ-поддержкой, чек-инами и мини-приложением <strong className="font-medium text-zinc-300">«Путь к Себе»</strong> — с
-            тестами, практиками и <strong className="font-medium text-zinc-300">ИИ-Венерой</strong>, которая сопровождает вас шаг за шагом, без
+            тестами, практиками и <strong className="font-medium text-zinc-300">ИИ-Венерой</strong>, которая сопровождает вас шаг за шагом без
             спешки и оценок.
           </motion.p>
           <motion.div
             className="flex flex-wrap items-center gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.58 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 30, mass: 0.85, delay: 0.58 }}
           >
             <a
               href={BOT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-8 py-4 text-base font-semibold text-[#0c0c0e] shadow-[0_0_48px_-10px_rgba(126,201,184,0.45)]"
+              className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-8 py-4 text-base font-semibold text-[#0c0c0e] shadow-[0_0_48px_-10px_rgba(126,201,184,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/55 focus-visible:ring-offset-2 focus-visible:ring-offset-[#07070d]"
             >
               <span className="absolute inset-0 bg-gradient-to-br from-[#d4f5ee] via-[#7ec9b8] to-[#3d7a6c] transition-transform duration-300 group-hover:scale-[1.03]" />
               <span className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -132,7 +130,7 @@ export function Hero() {
           className="mx-auto flex w-full max-w-[280px] flex-col items-center justify-center lg:mx-0 lg:max-w-none"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.95, delay: 0.35 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 22, mass: 1, delay: 0.35 }}
         >
           <div className="relative w-full max-w-[260px] overflow-hidden pb-0.5 sm:max-w-[280px] md:overflow-visible md:pb-0">
             <div
@@ -162,14 +160,14 @@ export function Hero() {
         className="pointer-events-none absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-zinc-600"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.35, duration: 0.8 }}
+        transition={{ delay: 1.2, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         aria-hidden
       >
         <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em]">Листайте</span>
         <motion.span
           className="block h-14 w-px bg-gradient-to-b from-teal-300/50 via-violet-300/30 to-transparent"
           animate={reduce ? {} : { y: [0, 5, 0] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
         />
       </motion.div>
     </header>

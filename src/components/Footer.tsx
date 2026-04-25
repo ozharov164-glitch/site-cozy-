@@ -18,7 +18,7 @@ export function Footer() {
           <div>
             <p className="font-display text-2xl font-medium text-gradient-gold">ВключиСебя</p>
             <p className="mt-2 text-sm font-light leading-relaxed text-zinc-500">
-              Самоподдержка и структура для рефлексии в Telegram — с Венерой, практиками и уважением к вашему ритму.
+              Самоподдержка и структура для саморефлексии в Telegram — с Венерой, практиками и уважением к вашему ритму.
             </p>
           </div>
         </div>

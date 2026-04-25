@@ -3,6 +3,7 @@
 @theme {
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-reading: 'PT Serif', 'Times New Roman', Times, serif;
   --color-ink: #07070d;
   --color-surface: #0c0c14;
   --color-muted: #8b8b9a;
@@ -22,6 +23,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  font-variant-numeric: oldstyle-nums;
   background-color: var(--color-ink);
   background-image:
     radial-gradient(ellipse 100% 80% at 50% -30%, rgba(99, 80, 140, 0.18), transparent 55%),
@@ -81,6 +84,12 @@ button:focus-visible {
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 52px 52px;
   mask-image: radial-gradient(ellipse 78% 68% at 50% 32%, black 18%, transparent 72%);
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    mask-image: radial-gradient(ellipse 92% 78% at 50% 22%, black 14%, transparent 76%);
+  }
 }
 
 .gradient-mesh {
@@ -222,4 +231,15 @@ button:focus-visible {
   border-left: 3px solid transparent;
   border-image: linear-gradient(180deg, rgba(126, 201, 184, 0.9), rgba(184, 169, 217, 0.7)) 1;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent);
+}
+
+/** Цитаты и выдержки: спокойный кириллический антиква — «как в хорошей психологической книге» */
+.quote-reading {
+  font-family: var(--font-reading);
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  letter-spacing: 0.01em;
+}
+
+.font-display {
+  font-feature-settings: 'kern' 1, 'liga' 1;
 }

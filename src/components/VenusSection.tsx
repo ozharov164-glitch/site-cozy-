@@ -21,8 +21,8 @@ export function VenusSection() {
           <div className="order-2 text-center lg:order-1 lg:text-left">
             <SectionLabel variant="twilight">ИИ-Венера</SectionLabel>
             <h2 className="mt-3 font-display text-[2rem] font-medium leading-[1.08] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[3.5rem]">
-              <span className="text-gradient-ethereal">Венера</span> — ваш коуч, после разговора с которой у вас{' '}
-              <span className="text-white">перехватывает дыхание</span>
+              <span className="text-gradient-ethereal">Венера</span> — ваш коуч, после разговора с которой{' '}
+              <span className="text-white">легче сделать вдох</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-zinc-300 lg:mx-0 lg:max-w-none lg:text-xl lg:leading-relaxed">
               Венера — не сухой чатбот и не безликая «модель». Это образ{' '}
@@ -32,11 +32,11 @@ export function VenusSection() {
             <p className="mx-auto mt-5 max-w-xl text-base font-light leading-relaxed text-zinc-400 lg:mx-0 lg:max-w-none lg:text-lg">
               Она подхватывает вас после диагностик, помогает разложить по полочкам то, что крутится в голове, и предлагает{' '}
               <span className="text-teal-200/90">следующий маленький шаг</span> — такой, который реально сделать сегодня. В диалоге можно
-              говорить от души — о страхах, усталости, отношениях с собой и с близкими, — и чувствовать, что вас не оценивают, а слышат.
+              говорить от души о страхах, усталости, отношениях с собой и с близкими — и чувствовать, что вас не оценивают, а слышат.
             </p>
 
-            <blockquote className="glass-quote mx-auto mt-10 max-w-xl rounded-r-2xl px-6 py-5 text-left lg:mx-0">
-              <p className="font-display text-xl font-normal italic leading-snug text-zinc-200 md:text-2xl">
+            <blockquote className="glass-quote quote-reading mx-auto mt-10 max-w-xl rounded-r-2xl px-6 py-5 text-left lg:mx-0">
+              <p className="text-xl font-normal italic leading-snug text-zinc-200 md:text-2xl">
                 «Как будто наконец можно выдохнуть вслух — и не бояться, что ответят шаблоном.»
               </p>
               <p className="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">Так откликаются пользователи</p>
@@ -46,8 +46,8 @@ export function VenusSection() {
               <li className="flex gap-3">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-teal-300 to-violet-400" aria-hidden />
                 <span>
-                  <strong className="font-medium text-zinc-300">Контекст, а не пустой лист.</strong> Венера видит вашу картину в приложении —
-                  прогресс, тесты и треки — и не притворяется, что вы только что «появились из ниоткуда».
+                  <strong className="font-medium text-zinc-300">Контекст, а не пустой лист.</strong> Венера помнит, что вы уже делали в
+                  приложении: тесты, треки, практики — и не притворяется, будто вы только что «появились из ниоткуда».
                 </span>
               </li>
               <li className="flex gap-3">
@@ -73,7 +73,7 @@ export function VenusSection() {
               initial={{ opacity: 0, scale: 0.96, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ type: 'spring', stiffness: 200, damping: 22, mass: 0.95 }}
             >
               <div
                 className="pointer-events-none absolute -inset-8 rounded-full bg-gradient-to-b from-violet-500/25 via-teal-400/10 to-transparent blur-3xl"

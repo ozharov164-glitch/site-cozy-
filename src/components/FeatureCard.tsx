@@ -58,7 +58,7 @@ export function FeatureCard({ item, index }: { item: FeatureItem; index: number 
         ref={ref}
         onMouseMove={onMove}
         onMouseLeave={onLeave}
-        className={`group relative h-full overflow-hidden rounded-2xl border bg-zinc-950/40 p-px shadow-[0_24px_48px_-28px_rgba(0,0,0,0.85)] transition-shadow duration-500 md:rounded-3xl ${borderOuter}`}
+        className={`group relative h-full overflow-hidden rounded-2xl border bg-zinc-950/40 p-px shadow-[0_24px_48px_-28px_rgba(0,0,0,0.85)] transition-[transform,box-shadow] duration-500 ease-out will-change-transform md:rounded-3xl md:hover:-translate-y-1 ${borderOuter}`}
       >
         <div className="relative h-full overflow-hidden rounded-[0.9rem] bg-gradient-to-b from-white/[0.06] via-zinc-950/60 to-zinc-950/90 p-6 md:rounded-[1.35rem] md:p-8">
           <div

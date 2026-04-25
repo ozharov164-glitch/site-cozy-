@@ -22,7 +22,13 @@ export function Reveal({ children, className = '', delay = 0 }: RevealProps) {
       className={className}
       initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{
+        type: 'spring',
+        stiffness: 260,
+        damping: 30,
+        mass: 0.92,
+        delay,
+      }}
     >
       {children}
     </motion.div>
