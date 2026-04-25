@@ -29,9 +29,10 @@ jobs:
       - name: Install
         run: npm ci
 
+      # Корень сайта на своём домене (cozyreset.ru). Старый URL github.io/site-cozy-/ при base=/ перестанет подставлять ассеты корректно.
       - name: Build
         env:
-          VITE_BASE: /site-cozy-/
+          VITE_BASE: /
         run: npm run build
 
       - uses: actions/upload-pages-artifact@v4
