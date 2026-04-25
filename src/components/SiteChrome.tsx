@@ -9,6 +9,7 @@ const nav = [
   { href: '#bot', label: 'Бот' },
   { href: '#venus', label: 'Венера' },
   { href: '#path', label: 'Путь' },
+  { href: '#creator', label: 'Создатель' },
   { href: '#plans', label: 'Тарифы' },
 ]
 

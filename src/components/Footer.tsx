@@ -57,6 +57,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="#creator" className="transition-colors hover:text-teal-200">
+                  О создателе
+                </a>
+              </li>
+              <li>
                 <a href="#plans" className="transition-colors hover:text-teal-200">
                   Тарифы
                 </a>

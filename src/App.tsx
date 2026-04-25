@@ -5,6 +5,7 @@ import { SectionLabel } from './components/SectionLabel'
 import { FeatureCard, type FeatureItem } from './components/FeatureCard'
 import { Footer } from './components/Footer'
 import { VenusSection } from './components/VenusSection'
+import { CreatorSection } from './components/CreatorSection'
 import { IconCheck } from './components/icons'
 
 const BOT = 'https://t.me/CozyReset_bot'
@@ -337,6 +338,12 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        <SectionDivider />
+
+        <CreatorSection />
+
+        <SectionDivider />
 
         <section className="px-6 py-24 md:px-10 md:py-28 lg:px-12">
           <div className="relative mx-auto max-w-3xl overflow-hidden rounded-[1.75rem] border border-white/[0.1] bg-gradient-to-b from-violet-950/30 via-[#0a0a10] to-zinc-950/95 px-8 py-16 text-center shadow-[0_32px_80px_-40px_rgba(0,0,0,0.9)] md:rounded-[2rem] md:px-12 md:py-20">
