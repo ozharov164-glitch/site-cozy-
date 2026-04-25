@@ -66,10 +66,20 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/[0.05] px-6 py-8 text-center md:px-10">
-        <p className="mx-auto max-w-2xl text-xs font-light leading-relaxed text-zinc-600 md:text-sm">
-          Продукт не является медицинским изделием и не заменяет помощь психолога, психотерапевта или врача. При кризисе
-          обращайтесь к специалистам и в экстренные службы вашего региона.
-        </p>
+        <div className="mx-auto max-w-3xl space-y-4 text-xs font-light leading-relaxed text-zinc-600 md:text-sm">
+          <p>
+            Сервис носит информационно-просветительский характер, не является медицинским изделием, программой лечения или дистанционным
+            приёмом специалиста и <strong className="font-medium text-zinc-500">не заменяет</strong> очную или онлайн-консультацию
+            психолога, психотерапевта или врача. Ответы ИИ и материалы в боте не являются медицинским диагнозом, заключением о состоянии
+            здоровья или юридической рекомендацией; решения о вашем здоровье и терапии вы принимаете самостоятельно.
+          </p>
+          <p>
+            Продукт <strong className="font-medium text-zinc-500">не предназначен</strong> для оказания неотложной помощи. При кризисном
+            состоянии, угрозе для вас или других людей, суицидальных мыслях или планах, а также при острых психотических симптомах{' '}
+            <strong className="font-medium text-zinc-500">немедленно</strong> обратитесь в экстренные и кризисные службы вашего региона или к
+            очному специалисту.
+          </p>
+        </div>
         <p className="mt-6 text-[0.7rem] font-medium tracking-wide text-zinc-700">© {new Date().getFullYear()} ВключиСебя · CozyReset</p>
       </div>
     </footer>

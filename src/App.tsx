@@ -18,7 +18,7 @@ const botFeatures: FeatureItem[] = [
   },
   {
     title: 'ИИ-поддержка',
-    text: 'Диалог в чате с ИИ: бережно, без давления и без оценки. В бесплатном режиме действуют разумные дневные лимиты — так формат остаётся устойчивым и не перегружает.',
+    text: 'Диалог в чате с ИИ: бережно, без давления и без оценки. В бесплатном режиме действуют разумные дневные лимиты — так формат остаётся устойчивым и не перегружает вас.',
     icon: 'chat',
   },
   {
@@ -33,7 +33,7 @@ const botFeatures: FeatureItem[] = [
   },
   {
     title: 'Вдохновение',
-    text: 'Аффирмация дня с учётом контекста; понравившиеся формулировки можно сохранять и собирать свою коллекцию опорных фраз.',
+    text: 'Аффирмация дня с учётом контекста; понравившиеся формулировки можно сохранять и собирать вашу коллекцию опорных фраз.',
     icon: 'spark',
   },
   {
@@ -70,7 +70,7 @@ const pathFeatures: FeatureItem[] = [
   },
   {
     title: 'К специалисту',
-    text: 'Структурированная подготовка к приёму у живого психолога или коуча: с чем приходите, что для вас важно, какие ожидания. На выходе — аккуратный текст или PDF, чтобы не начинать разговор в кабинете «с чистого листа».',
+    text: 'Структурированная подготовка к приёму у живого психолога или коуча: с каким запросом вы приходите, что для вас важно и какие у вас ожидания. На выходе — аккуратный текст или PDF, чтобы не начинать разговор в кабинете «с чистого листа».',
     icon: 'doc',
     tone: 'twilight',
   },
@@ -112,8 +112,8 @@ function PathNarrative() {
           </p>
           <p className="mt-5 text-base font-light leading-relaxed text-zinc-400 md:text-lg">
             Здесь удобно возвращаться к себе <strong className="font-medium text-zinc-200">регулярно</strong>: не раз в месяц «вспомнить
-            про заботу о себе», а понемногу и в своём темпе — открыли приложение, отметили настроение, сделали практику, зафиксировали
-            инсайт, чтобы потом обсудить его с Венерой или взять с собой на приём к психологу.
+            про заботу о себе», а понемногу и в своём темпе — вы открываете приложение, отмечаете настроение, делаете практику, фиксируете
+            инсайт, чтобы потом обсудить его с Венерой или взять его с собой на приём к психологу.
           </p>
         </div>
         <div className="rounded-2xl border border-white/[0.08] bg-gradient-to-br from-teal-950/30 via-zinc-950/50 to-violet-950/25 p-8 shadow-inner md:rounded-3xl md:p-10">
@@ -163,7 +163,7 @@ export default function App() {
             <SectionLabel>Идея</SectionLabel>
             <h2 className="font-display text-[2.1rem] font-medium leading-[1.12] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[3.35rem] lg:leading-[1.08]">
               Не «исправить себя за неделю», а{' '}
-              <span className="text-gradient-ethereal italic">услышать</span> и опереться
+              <span className="text-gradient-ethereal italic">услышать себя</span> и обрести опору
             </h2>
             <p className="mx-auto mt-8 max-w-2xl text-lg font-light leading-relaxed text-zinc-400 md:mt-10 md:text-xl md:leading-relaxed">
               ВключиСебя — инструмент психологической и эмоциональной <strong className="font-medium text-zinc-300">самоподдержки</strong>{' '}
@@ -179,22 +179,22 @@ export default function App() {
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold/70" aria-hidden />
                   <span>
                     Вы устали от навязчивой «мотивации» и громких обещаний — и ищете{' '}
-                    <strong className="font-medium text-zinc-300">спокойный тон</strong>, в котором можно быть неидеальным.
+                    <strong className="font-medium text-zinc-300">спокойный тон</strong>, в котором вам можно быть неидеальным.
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-teal-400/70" aria-hidden />
                   <span>
-                    Хочется <strong className="font-medium text-zinc-300">регулярно возвращаться к себе</strong> маленькими шагами: заметить
-                    настроение, пройти тест, сделать практику — без чувства вины за «недоделанное».
+                    Вам хочется <strong className="font-medium text-zinc-300">регулярно возвращаться к себе</strong> маленькими шагами:
+                    заметить настроение, пройти тест, сделать практику — без чувства вины за «недоделанное».
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-violet-400/65" aria-hidden />
                   <span>
                     Вы уже ходите к психологу или только присматриваетесь к терапии — и хотите{' '}
-                    <strong className="font-medium text-zinc-300">бережно подготовиться</strong>, собрать мысли и прийти на разговор с
-                    яснее сформулированным запросом.
+                    <strong className="font-medium text-zinc-300">бережно подготовиться</strong>, собрать мысли и прийти на разговор с более
+                    ясным запросом.
                   </span>
                 </li>
               </ul>
@@ -217,7 +217,7 @@ export default function App() {
                 </h2>
               </div>
               <p className="max-w-md text-sm font-light leading-relaxed text-zinc-500 md:text-base">
-                Меню собрано так, чтобы каждый день можно было начать с малого: без перегруза опциями и без чувства вины за «недоделанное».
+                Меню собрано так, чтобы вы каждый день могли начать с малого: без перегруза опциями и без чувства вины за «недоделанное».
               </p>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
@@ -242,7 +242,7 @@ export default function App() {
                 «Путь к Себе»
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base font-light text-zinc-500 md:text-lg">
-                Пространство для регулярной работы с собой: глубже, чем один чат, но по-прежнему в привычном Telegram.
+                Пространство для вашей регулярной работы с собой: глубже, чем один чат, но по-прежнему в привычном вам Telegram.
               </p>
             </div>
 
@@ -325,7 +325,7 @@ export default function App() {
                 </div>
                 <h3 className="relative font-display text-2xl font-medium text-gradient-ethereal md:text-3xl">Полный доступ</h3>
                 <p className="relative mt-2 text-sm text-zinc-500">
-                  Для тех, кто хочет углубиться: без лимитов в чате и с полным доступом к мини-приложению.
+                  Если вы хотите углубиться: без лимитов в чате и с полным доступом к мини-приложению.
                 </p>
                 <ul className="relative mt-8 space-y-4">
                   <ListItem>Безлимитная ИИ-поддержка в чате</ListItem>
@@ -345,8 +345,8 @@ export default function App() {
               Шаг в сторону заботы о себе
             </h2>
             <p className="relative mx-auto mt-6 max-w-md text-base font-light leading-relaxed text-zinc-400 md:text-lg">
-              Бот откроется в Telegram: мы подскажем первые шаги и поможем выбрать комфортный темп. Венера и «Путь к Себе» рядом — в том же
-              мессенджере, без лишних приложений и новых паролей.
+              Бот откроется в Telegram: мы подскажем вам первые шаги и поможем вам выбрать комфортный темп. Венера и «Путь к Себе» рядом — в
+              том же мессенджере, без лишних приложений и новых паролей.
             </p>
             <a
               href={BOT}

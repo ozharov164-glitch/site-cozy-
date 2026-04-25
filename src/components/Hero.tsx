@@ -150,7 +150,7 @@ export function Hero() {
               </div>
             </div>
             <p className="mt-5 text-center text-xs font-light leading-relaxed text-zinc-500">
-              Символ бота — забота о себе и бережный рост в одном знаке.
+              Символ бота — забота о вас и бережный рост в одном знаке.
             </p>
           </div>
         </motion.div>
