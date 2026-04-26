@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Карта сайта (одностраничный лендинг)
+Sitemap: https://cozyreset.ru/sitemap.xml
