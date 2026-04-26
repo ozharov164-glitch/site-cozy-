@@ -6,6 +6,7 @@ import { FeatureCard, type FeatureItem } from './components/FeatureCard'
 import { Footer } from './components/Footer'
 import { VenusSection } from './components/VenusSection'
 import { CreatorSection } from './components/CreatorSection'
+import { PathAppShowcase } from './components/PathAppShowcase'
 import { IconCheck } from './components/icons'
 
 const BOT = 'https://t.me/CozyReset_bot'
@@ -249,7 +250,9 @@ export default function App() {
 
             <PathNarrative />
 
-            <div className="path-spotlight path-spotlight-glow relative mb-16 rounded-[1.75rem] border border-white/[0.06] bg-gradient-to-br from-zinc-900/80 via-[#0a0814] to-zinc-950/90 p-px md:mb-20 md:rounded-[2rem]">
+            <PathAppShowcase />
+
+            <div className="path-spotlight path-spotlight-glow relative mb-16 rounded-[1.75rem] border border-white/[0.06] bg-gradient-to-br from-zinc-900/75 via-[#07070d] to-zinc-950/88 p-px md:mb-20 md:rounded-[2rem]">
               <div className="relative overflow-hidden rounded-[1.7rem] bg-gradient-to-br from-teal-900/[0.12] via-transparent to-violet-950/[0.14] px-8 py-12 md:rounded-[1.95rem] md:px-12 md:py-14 lg:p-16">
                 <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-teal-400/10 blur-3xl" aria-hidden />
                 <div
@@ -346,7 +349,7 @@ export default function App() {
         <SectionDivider />
 
         <section className="px-6 py-24 md:px-10 md:py-28 lg:px-12">
-          <div className="relative mx-auto max-w-3xl overflow-hidden rounded-[1.75rem] border border-white/[0.1] bg-gradient-to-b from-violet-950/30 via-[#0a0a10] to-zinc-950/95 px-8 py-16 text-center shadow-[0_32px_80px_-40px_rgba(0,0,0,0.9)] md:rounded-[2rem] md:px-12 md:py-20">
+          <div className="relative mx-auto max-w-3xl overflow-hidden rounded-[1.75rem] border border-white/[0.1] bg-gradient-to-b from-violet-950/30 via-[#07070d] to-zinc-950/95 px-8 py-16 text-center shadow-[0_32px_80px_-40px_rgba(0,0,0,0.9)] md:rounded-[2rem] md:px-12 md:py-20">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_55%_at_50%_-10%,rgba(126,201,184,0.12),transparent_50%)]" />
             <h2 className="relative font-display text-3xl font-medium tracking-tight text-white md:text-5xl md:leading-tight">
               Шаг в сторону заботы о себе

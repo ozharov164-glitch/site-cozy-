@@ -48,11 +48,6 @@ export function Hero() {
         transition={{ duration: 10, repeat: Infinity, ease: [0.45, 0, 0.55, 1] }}
       />
 
-      <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-44 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/88 to-transparent md:hidden"
-        aria-hidden
-      />
-
       {/* Контент по центру экрана; «Листайте» — отдельная строка внизу (без absolute → нет наслоения с подписью под иконкой) */}
       <div className="relative z-10 flex min-h-0 flex-1 flex-col pt-[calc(4.5rem+1.25rem)] md:pt-[calc(5rem+2rem)]">
         <div className="flex min-h-0 flex-1 flex-col justify-center px-6 pb-6 md:px-12 md:pb-10 lg:px-20">
@@ -129,31 +124,33 @@ export function Hero() {
             </div>
 
             <motion.div
-              className="mx-auto flex w-full max-w-[280px] flex-col items-center justify-center lg:mx-0 lg:max-w-none"
+              className="mx-auto flex w-full max-w-[320px] flex-col items-center justify-center lg:mx-0 lg:max-w-none"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: 'spring', stiffness: 200, damping: 22, mass: 1, delay: 0.35 }}
             >
-              <div className="relative w-full max-w-[260px] overflow-hidden pb-1 sm:max-w-[280px] md:overflow-visible md:pb-0">
+              <div className="hero-bot-cluster">
                 <div
-                  className="pointer-events-none absolute -inset-6 rounded-full bg-gradient-to-b from-teal-300/18 via-violet-500/12 to-transparent blur-3xl md:-inset-10"
+                  className="pointer-events-none absolute left-1/2 top-10 h-[min(300px,95vw)] w-[min(300px,95vw)] max-w-[340px] -translate-x-1/2 rounded-full bg-gradient-to-b from-teal-300/14 via-violet-500/[0.09] to-transparent blur-[52px] md:top-12 md:h-[min(320px,100vw)] md:w-[min(320px,100vw)] md:blur-[64px]"
                   aria-hidden
                 />
-                <div className="relative overflow-hidden rounded-full border border-white/12 bg-gradient-to-b from-white/[0.07] to-zinc-950/95 p-1 shadow-[0_28px_56px_-22px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/10">
-                  <div className="bot-icon-frame aspect-square w-full">
-                    <img
-                      src={assetUrl('brand-bot-icon.png')}
-                      alt="Иконка бота «ВключиСебя»: сердце и росток"
-                      width={512}
-                      height={512}
-                      decoding="async"
-                      fetchPriority="high"
-                    />
+                <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[280px]">
+                  <div className="relative overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.05] to-[#07070d] p-[3px] shadow-[0_24px_64px_-28px_rgba(0,0,0,0.72)] ring-1 ring-inset ring-white/[0.05]">
+                    <div className="bot-icon-frame aspect-square w-full">
+                      <img
+                        src={assetUrl('brand-bot-icon.png')}
+                        alt="Иконка бота «ВключиСебя»: сердце и росток"
+                        width={512}
+                        height={512}
+                        decoding="async"
+                        fetchPriority="high"
+                      />
+                    </div>
                   </div>
+                  <p className="relative z-10 mx-auto mt-6 max-w-[18rem] text-center text-xs font-light leading-relaxed text-zinc-400 md:mt-5 md:text-[0.8125rem]">
+                    Символ бота — забота о вас и бережный рост в одном знаке.
+                  </p>
                 </div>
-                <p className="relative z-10 mt-5 text-center text-xs font-light leading-relaxed text-zinc-500 md:text-[0.8125rem]">
-                  Символ бота — забота о вас и бережный рост в одном знаке.
-                </p>
               </div>
             </motion.div>
           </div>

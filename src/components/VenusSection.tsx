@@ -80,23 +80,23 @@ export function VenusSection() {
                 className="pointer-events-none absolute -inset-8 rounded-full bg-gradient-to-b from-violet-500/25 via-teal-400/10 to-transparent blur-3xl"
                 aria-hidden
               />
-              <div className="venus-halo relative mx-auto aspect-square w-full max-w-[min(100%,360px)] overflow-hidden rounded-full border border-white/12 bg-zinc-950 p-[3px] shadow-2xl lg:mx-0 lg:ml-auto">
-                <div className="relative aspect-square h-full w-full overflow-hidden rounded-full bg-gradient-to-br from-zinc-900 to-[#06050c]">
+              <div className="venus-halo relative mx-auto aspect-square w-full max-w-[min(100%,360px)] overflow-hidden rounded-full border border-white/12 bg-[#07070d] p-[3px] shadow-2xl lg:mx-0 lg:ml-auto">
+                <div className="venus-portrait-inner aspect-square h-full w-full">
                   <img
                     src={assetUrl('ai-venus.png')}
                     alt="ИИ-Венера — персональный коуч в мини-приложении «Путь к Себе»"
                     width={760}
                     height={760}
-                    className="absolute left-1/2 top-1/2 h-[120%] w-[120%] max-w-none -translate-x-1/2 -translate-y-[50.5%] object-cover object-[center_12%]"
+                    className="venus-portrait-img absolute left-1/2 top-1/2 h-[118%] w-[118%] max-w-none -translate-x-1/2 -translate-y-[50.5%] object-cover object-[center_12%]"
                     decoding="async"
                     loading="lazy"
                   />
-                  {/* гасим белый «ореол» по углам исходника */}
+                  {/* гасим «прямоугольник» исходника и блики по кругу */}
                   <div
-                    className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_0_48px_22px_rgba(5,4,12,0.88),inset_0_0_96px_40px_rgba(5,4,12,0.45)]"
+                    className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_0_52px_26px_rgba(7,7,13,0.92),inset_0_0_100px_44px_rgba(7,7,13,0.48)]"
                     aria-hidden
                   />
-                  <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-[#06050c]/95 via-transparent to-[#06050c]/35" />
+                  <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-[#07070d]/96 via-transparent to-[#07070d]/38" />
                 </div>
               </div>
               {!reduce && (

@@ -78,17 +78,30 @@ button:focus-visible {
   background: radial-gradient(ellipse 90% 75% at 50% 40%, transparent 0%, rgba(4, 4, 10, 0.65) 100%);
 }
 
+@media (max-width: 768px) {
+  .hero-vignette {
+    /* Смягчаем низ героя без отдельного слоя «плашки» (она давала горизонтальный шов на телефоне) */
+    background:
+      radial-gradient(ellipse 98% 88% at 50% 42%, transparent 0%, rgba(4, 4, 10, 0.45) 62%, rgba(7, 7, 13, 0.82) 100%),
+      radial-gradient(ellipse 120% 70% at 50% 118%, rgba(7, 7, 13, 0.55) 0%, transparent 55%);
+  }
+}
+
 .hero-grid {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 52px 52px;
-  mask-image: radial-gradient(ellipse 78% 68% at 50% 32%, black 18%, transparent 72%);
+  /* Одна мягкая маска для всех ширин + webkit — на iPhone иначе сетка доходит до края «плиткой» */
+  mask-image: radial-gradient(ellipse 100% 92% at 50% 34%, black 0%, black 12%, rgba(0, 0, 0, 0.35) 42%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 92% at 50% 34%, black 0%, black 12%, rgba(0, 0, 0, 0.35) 42%, transparent 78%);
 }
 
 @media (max-width: 768px) {
   .hero-grid {
-    mask-image: radial-gradient(ellipse 92% 78% at 50% 22%, black 14%, transparent 76%);
+    /* Узкий экран: шире по горизонтали, ниже центр — без «обрубка» по бокам и сверху */
+    mask-image: radial-gradient(ellipse 125% 96% at 50% 38%, black 0%, black 10%, rgba(0, 0, 0, 0.32) 48%, transparent 82%);
+    -webkit-mask-image: radial-gradient(ellipse 125% 96% at 50% 38%, black 0%, black 10%, rgba(0, 0, 0, 0.32) 48%, transparent 82%);
   }
 }
 
@@ -97,8 +110,16 @@ button:focus-visible {
     radial-gradient(ellipse 90% 58% at 50% -18%, rgba(126, 201, 184, 0.14), transparent 52%),
     radial-gradient(ellipse 55% 48% at 100% 38%, rgba(110, 85, 150, 0.14), transparent 50%),
     radial-gradient(ellipse 48% 38% at 0% 88%, rgba(201, 169, 98, 0.1), transparent 46%);
-  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: radial-gradient(ellipse 118% 92% at 50% 32%, black 0%, black 52%, transparent 88%);
+  -webkit-mask-image: radial-gradient(ellipse 118% 92% at 50% 32%, black 0%, black 52%, transparent 88%);
+}
+
+@media (max-width: 768px) {
+  .gradient-mesh {
+    /* Высокий узкий вьюпорт: шире эллипс маски — цветные пятна не упираются в вертикальные швы */
+    mask-image: radial-gradient(ellipse 140% 100% at 50% 30%, black 0%, black 44%, transparent 86%);
+    -webkit-mask-image: radial-gradient(ellipse 140% 100% at 50% 30%, black 0%, black 44%, transparent 86%);
+  }
 }
 
 .text-gradient-gold {
@@ -169,10 +190,12 @@ button:focus-visible {
 
 .cosmic-section {
   position: relative;
-  background:
+  background-color: var(--color-ink);
+  /* Только полупрозрачные слои поверх тех же «чернил», что и у body — без другого серого/фиолетового «холста» */
+  background-image:
     radial-gradient(ellipse 80% 60% at 70% 20%, rgba(110, 85, 150, 0.22), transparent 55%),
     radial-gradient(ellipse 60% 50% at 10% 80%, rgba(45, 35, 80, 0.5), transparent 50%),
-    linear-gradient(180deg, #0a0818 0%, #0c0a14 50%, #080810 100%);
+    linear-gradient(180deg, rgba(12, 10, 22, 0.55) 0%, transparent 42%, rgba(8, 8, 14, 0.4) 100%);
 }
 
 /** Секция создателя: атмосфера без «швов» по краям экрана */
@@ -181,11 +204,11 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 88% 75% at 48% 42%, rgba(126, 201, 184, 0.09), transparent 58%),
-    radial-gradient(ellipse 70% 60% at 88% 55%, rgba(110, 85, 150, 0.14), transparent 62%),
-    radial-gradient(ellipse 55% 50% at 8% 35%, rgba(45, 35, 80, 0.35), transparent 58%);
-  mask-image: radial-gradient(ellipse 105% 95% at 50% 50%, black 18%, transparent 72%);
-  -webkit-mask-image: radial-gradient(ellipse 105% 95% at 50% 50%, black 18%, transparent 72%);
+    radial-gradient(ellipse 92% 78% at 48% 44%, rgba(126, 201, 184, 0.075), transparent 62%),
+    radial-gradient(ellipse 75% 65% at 86% 58%, rgba(110, 85, 150, 0.11), transparent 66%),
+    radial-gradient(ellipse 62% 55% at 10% 38%, rgba(45, 35, 80, 0.28), transparent 62%);
+  mask-image: radial-gradient(ellipse 115% 100% at 50% 50%, black 12%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 115% 100% at 50% 50%, black 12%, transparent 78%);
 }
 
 .creator-section-edge-fade {
@@ -194,12 +217,12 @@ button:focus-visible {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(7, 7, 13, 0.97) 0%,
-    rgba(7, 7, 13, 0.45) 6%,
-    transparent 14%,
-    transparent 86%,
-    rgba(7, 7, 13, 0.45) 94%,
-    rgba(7, 7, 13, 0.97) 100%
+    rgba(7, 7, 13, 0.88) 0%,
+    rgba(7, 7, 13, 0.18) 14%,
+    transparent 26%,
+    transparent 74%,
+    rgba(7, 7, 13, 0.18) 86%,
+    rgba(7, 7, 13, 0.88) 100%
   );
 }
 
@@ -207,7 +230,7 @@ button:focus-visible {
   pointer-events: none;
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 100% 85% at 50% 50%, transparent 35%, rgba(4, 3, 10, 0.55) 100%);
+  background: radial-gradient(ellipse 120% 95% at 50% 48%, transparent 40%, rgba(4, 3, 10, 0.42) 100%);
 }
 
 /** Мягкие края «звёзд», без резких обрывов по краям секции */
@@ -246,15 +269,42 @@ button:focus-visible {
     0 40px 80px -30px rgba(0, 0, 0, 0.9);
 }
 
-/** Круглая иконка бота: скрываем квадратный фон файла, слегка увеличиваем кадр */
+/** Круглая иконка бота: фон = чернила страницы + мягкое затемнение по краю PNG */
 .bot-icon-frame {
   position: relative;
   overflow: hidden;
   border-radius: 9999px;
-  background: radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.06), rgba(12, 12, 18, 0.95) 72%);
+  background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.055), rgba(7, 7, 13, 0.97) 68%, rgba(7, 7, 13, 1) 100%);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-    inset 0 0 28px 10px rgba(6, 5, 12, 0.55);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
+    inset 0 0 32px 12px rgba(4, 3, 10, 0.45),
+    0 0 0 1px rgba(7, 7, 13, 0.85),
+    0 0 28px 14px rgba(7, 7, 13, 0.55);
+}
+
+/** Герой: место под внешнее свечение без обрезки (overflow давал резкий прямоугольник) */
+.hero-bot-cluster {
+  position: relative;
+  isolation: isolate;
+  margin: 0 auto;
+  max-width: 280px;
+  padding: 2.25rem 1.75rem 0.25rem;
+  overflow: visible;
+}
+
+@media (min-width: 640px) {
+  .hero-bot-cluster {
+    max-width: 300px;
+    padding: 2.5rem 2rem 0.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-bot-cluster {
+    max-width: none;
+    padding: 2.75rem 0 0;
+    margin: 0;
+  }
 }
 
 .bot-icon-frame img {
@@ -265,6 +315,12 @@ button:focus-visible {
   margin: -6% 0 0 -6%;
   object-fit: cover;
   border-radius: 9999px;
+}
+
+/** Крупная иконка в герое: слегка приглушаем край кадра PNG, чтобы не читался прямоугольник файла */
+.hero-bot-cluster .bot-icon-frame img {
+  mask-image: radial-gradient(circle at 50% 48%, black 91%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 48%, black 91%, transparent 100%);
 }
 
 .glass-quote {
@@ -284,28 +340,29 @@ button:focus-visible {
   font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
-/** Портрет создателя: градиентная рамка, виньетка и лёгкая цветокоррекция под палитру сайта */
+/** Портрет создателя: мягкая рамка + тень в цвет фона — без «коробки» */
 .creator-portrait-shell {
-  padding: 2px;
-  border-radius: 1.75rem;
+  padding: 1px;
+  border-radius: 2rem;
   background: linear-gradient(
-    135deg,
-    rgba(126, 201, 184, 0.5),
-    rgba(184, 169, 217, 0.38) 42%,
-    rgba(201, 169, 98, 0.32) 78%,
-    rgba(110, 85, 150, 0.42)
+    145deg,
+    rgba(126, 201, 184, 0.34),
+    rgba(184, 169, 217, 0.24) 42%,
+    rgba(201, 169, 98, 0.22) 72%,
+    rgba(110, 85, 150, 0.3)
   );
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.07),
-    0 36px 96px -44px rgba(0, 0, 0, 0.92),
-    0 0 80px -20px rgba(126, 201, 184, 0.12);
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 48px 120px -52px rgba(0, 0, 0, 0.82),
+    0 0 100px -36px rgba(7, 7, 13, 0.95);
 }
 
 .creator-portrait-inner {
   position: relative;
   overflow: hidden;
-  border-radius: calc(1.75rem - 2px);
-  background: #06060c;
+  border-radius: calc(2rem - 1px);
+  background-color: var(--color-ink);
+  background-image: radial-gradient(ellipse 110% 85% at 50% 8%, rgba(32, 30, 48, 0.35) 0%, transparent 55%);
 }
 
 .creator-portrait-img {
@@ -314,6 +371,23 @@ button:focus-visible {
   height: 100%;
   object-fit: cover;
   object-position: center 16%;
-  transform: scale(1.09);
+  transform: scale(1.045);
   filter: saturate(0.93) contrast(1.05) brightness(1.03);
+  /* Сглаживаем прямоугольные края исходника по периметру карточки */
+  mask-image: radial-gradient(ellipse 92% 94% at 50% 44%, black 58%, black 88%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 92% 94% at 50% 44%, black 58%, black 88%, transparent 100%);
+}
+
+/** Портрет Венеры: те же чернила + мягкое смешивание с кругом */
+.venus-portrait-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: var(--color-ink);
+}
+
+.venus-portrait-img {
+  display: block;
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 44%, black 74%, black 91%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 100% at 50% 44%, black 74%, black 91%, transparent 100%);
 }

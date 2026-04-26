@@ -13,7 +13,7 @@ export function CreatorSection() {
       className="relative scroll-mt-28 overflow-hidden border-t border-white/[0.06] bg-[#07070d] px-6 py-24 md:scroll-mt-32 md:px-10 md:py-28 lg:px-12"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0a0814] via-[#080810] to-[#06060c]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[rgba(12,10,22,0.4)] via-transparent to-[rgba(6,6,12,0.35)]"
         aria-hidden
       />
       <div className="creator-section-atmosphere" aria-hidden />
@@ -21,7 +21,7 @@ export function CreatorSection() {
       <div className="creator-section-vignette" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
-          <div className="order-2 flex justify-center overflow-hidden px-1 pb-2 pt-1 md:overflow-visible md:px-0 md:pb-0 md:pt-0 lg:order-1 lg:justify-start">
+          <div className="order-2 flex justify-center px-2 pb-4 pt-2 md:px-0 md:pb-6 md:pt-0 lg:order-1 lg:justify-start">
             <motion.div
               className="relative isolate w-full max-w-[min(100%,400px)]"
               initial={{ opacity: 0, scale: 0.97, y: 18 }}
@@ -45,10 +45,10 @@ export function CreatorSection() {
                     loading="lazy"
                   />
                   <div
-                    className="pointer-events-none absolute inset-0 rounded-[calc(1.75rem-2px)] shadow-[inset_0_0_52px_24px_rgba(4,3,10,0.9),inset_0_0_100px_48px_rgba(4,3,10,0.38)]"
+                    className="pointer-events-none absolute inset-0 rounded-[calc(2rem-1px)] shadow-[inset_0_0_64px_36px_rgba(7,7,13,0.94),inset_0_0_120px_56px_rgba(7,7,13,0.38)]"
                     aria-hidden
                   />
-                  <div className="pointer-events-none absolute inset-0 rounded-[calc(1.75rem-2px)] bg-gradient-to-t from-[#06050c]/92 via-transparent to-[#06050c]/28" />
+                  <div className="pointer-events-none absolute inset-0 rounded-[calc(2rem-1px)] bg-gradient-to-t from-[#07070d]/94 via-transparent to-[#07070d]/28" />
                 </div>
               </div>
               {!reduce && (

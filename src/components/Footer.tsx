@@ -5,7 +5,7 @@ const UPDATES = 'https://t.me/updatecozy'
 
 export function Footer() {
   return (
-    <footer className="relative z-10 border-t border-white/[0.07] bg-[#050508]/95">
+    <footer className="relative z-10 border-t border-white/[0.07] bg-[#07070d]/98">
       <div
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-400/25 to-transparent"
         aria-hidden
