@@ -10,12 +10,15 @@ export function CreatorSection() {
   return (
     <section
       id="creator"
-      className="relative scroll-mt-28 overflow-hidden border-t border-white/[0.05] bg-gradient-to-b from-[#080810] via-[#0a0812] to-[#07070d] px-6 py-24 md:scroll-mt-32 md:px-10 md:py-28 lg:px-12"
+      className="relative scroll-mt-28 overflow-hidden border-t border-white/[0.06] bg-[#07070d] px-6 py-24 md:scroll-mt-32 md:px-10 md:py-28 lg:px-12"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_20%_30%,rgba(126,201,184,0.08),transparent_55%),radial-gradient(ellipse_55%_45%_at_90%_70%,rgba(110,85,150,0.1),transparent_50%)]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0a0814] via-[#080810] to-[#06060c]"
         aria-hidden
       />
+      <div className="creator-section-atmosphere" aria-hidden />
+      <div className="creator-section-edge-fade" aria-hidden />
+      <div className="creator-section-vignette" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <div className="order-2 flex justify-center overflow-hidden px-1 pb-2 pt-1 md:overflow-visible md:px-0 md:pb-0 md:pt-0 lg:order-1 lg:justify-start">

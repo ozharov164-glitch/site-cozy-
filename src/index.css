@@ -97,6 +97,8 @@ button:focus-visible {
     radial-gradient(ellipse 90% 58% at 50% -18%, rgba(126, 201, 184, 0.14), transparent 52%),
     radial-gradient(ellipse 55% 48% at 100% 38%, rgba(110, 85, 150, 0.14), transparent 50%),
     radial-gradient(ellipse 48% 38% at 0% 88%, rgba(201, 169, 98, 0.1), transparent 46%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .text-gradient-gold {
@@ -173,11 +175,49 @@ button:focus-visible {
     linear-gradient(180deg, #0a0818 0%, #0c0a14 50%, #080810 100%);
 }
 
+/** Секция создателя: атмосфера без «швов» по краям экрана */
+.creator-section-atmosphere {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 88% 75% at 48% 42%, rgba(126, 201, 184, 0.09), transparent 58%),
+    radial-gradient(ellipse 70% 60% at 88% 55%, rgba(110, 85, 150, 0.14), transparent 62%),
+    radial-gradient(ellipse 55% 50% at 8% 35%, rgba(45, 35, 80, 0.35), transparent 58%);
+  mask-image: radial-gradient(ellipse 105% 95% at 50% 50%, black 18%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 105% 95% at 50% 50%, black 18%, transparent 72%);
+}
+
+.creator-section-edge-fade {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 7, 13, 0.97) 0%,
+    rgba(7, 7, 13, 0.45) 6%,
+    transparent 14%,
+    transparent 86%,
+    rgba(7, 7, 13, 0.45) 94%,
+    rgba(7, 7, 13, 0.97) 100%
+  );
+}
+
+.creator-section-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 100% 85% at 50% 50%, transparent 35%, rgba(4, 3, 10, 0.55) 100%);
+}
+
+/** Мягкие края «звёзд», без резких обрывов по краям секции */
 .stars-dust {
   pointer-events: none;
   position: absolute;
   inset: 0;
   opacity: 0.5;
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 45%, black 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 45%, black 25%, transparent 78%);
   background-image:
     radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.35), transparent),
     radial-gradient(1px 1px at 25% 65%, rgba(255, 255, 255, 0.25), transparent),
