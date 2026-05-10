@@ -1,45 +1,7 @@
-import { useMemo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { assetUrl } from '../lib/assets'
-import { buildCircularEcgPath } from '../lib/heroEcgPath'
 
 const BOT_URL = 'https://t.me/CozyReset_bot'
-
-function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
-  const d = useMemo(
-    () =>
-      buildCircularEcgPath({
-        cx: 100,
-        cy: 100,
-        baseR: 93,
-        amplitude: 3.05,
-        segments: 720,
-        beatsPerTurn: 8,
-      }),
-    [],
-  )
-
-  return (
-    <svg
-      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[70] h-[126%] w-[126%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
-      viewBox="0 0 200 200"
-      aria-hidden
-    >
-      <path
-        d={d}
-        fill="none"
-        stroke="#9ae8d4"
-        strokeWidth={2.15}
-        strokeLinecap="butt"
-        strokeLinejoin="miter"
-        strokeMiterlimit={12}
-        shapeRendering="geometricPrecision"
-        vectorEffect="non-scaling-stroke"
-        style={{ opacity: reduce ? 0.62 : 0.93 }}
-      />
-    </svg>
-  )
-}
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -162,18 +124,18 @@ export function Hero() {
             </div>
 
             <motion.div
-              className="relative z-[32] mx-auto flex w-full max-w-[320px] flex-col items-center justify-center lg:mx-0 lg:max-w-none"
+              className="mx-auto flex w-full max-w-[320px] flex-col items-center justify-center lg:mx-0 lg:max-w-none"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: 'spring', stiffness: 200, damping: 22, mass: 1, delay: 0.35 }}
             >
               <div className="hero-bot-cluster">
                 <div
-                  className="pointer-events-none absolute left-1/2 top-10 z-0 h-[min(300px,95vw)] w-[min(300px,95vw)] max-w-[340px] -translate-x-1/2 rounded-full bg-gradient-to-b from-teal-300/14 via-violet-500/[0.09] to-transparent blur-[52px] md:top-12 md:h-[min(320px,100vw)] md:w-[min(320px,100vw)] md:blur-[64px]"
+                  className="pointer-events-none absolute left-1/2 top-10 h-[min(300px,95vw)] w-[min(300px,95vw)] max-w-[340px] -translate-x-1/2 rounded-full bg-gradient-to-b from-teal-300/14 via-violet-500/[0.09] to-transparent blur-[52px] md:top-12 md:h-[min(320px,100vw)] md:w-[min(320px,100vw)] md:blur-[64px]"
                   aria-hidden
                 />
-                <div className="relative z-[10] mx-auto w-full max-w-[260px] overflow-visible sm:max-w-[280px]">
-                  <div className="relative z-[3] overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.05] to-[#07070d] p-[3px] shadow-[0_24px_64px_-28px_rgba(0,0,0,0.72)] ring-1 ring-inset ring-white/[0.05]">
+                <div className="relative mx-auto w-full max-w-[260px] overflow-visible sm:max-w-[280px]">
+                  <div className="relative overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.05] to-[#07070d] p-[3px] shadow-[0_24px_64px_-28px_rgba(0,0,0,0.72)] ring-1 ring-inset ring-white/[0.05]">
                     <div className="bot-icon-frame aspect-square w-full">
                       <img
                         src={assetUrl('brand-bot-icon.png')}
@@ -185,7 +147,6 @@ export function Hero() {
                       />
                     </div>
                   </div>
-                  <HeroEcgOrbit reduce={reduce} />
                 </div>
               </div>
             </motion.div>
