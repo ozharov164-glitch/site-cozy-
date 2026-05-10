@@ -137,9 +137,10 @@ export function Hero() {
                 />
                 <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[280px]">
                   <div className="hero-avatar-shell relative overflow-hidden rounded-full border border-white/[0.14] bg-gradient-to-b from-white/[0.09] via-white/[0.03] to-[#07070d] p-[3px] shadow-[0_28px_80px_-30px_rgba(0,0,0,0.78)] ring-1 ring-inset ring-white/[0.08]">
-                    <div className="bot-icon-frame aspect-square w-full">
+                    <div className="hero-avatar-image-wrap aspect-square w-full">
                       <img
-                        src={assetUrl('brand-bot-icon.png')}
+                        src={assetUrl('hero-avatar-premium.png')}
+                        className="hero-avatar-image"
                         alt="Эмблема проекта «ВключиСебя»"
                         width={512}
                         height={512}
