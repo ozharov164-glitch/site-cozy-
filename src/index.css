@@ -317,26 +317,6 @@ button:focus-visible {
   background: radial-gradient(circle at 32% 20%, rgba(255, 255, 255, 0.3), transparent 34%);
 }
 
-.hero-avatar-caption {
-  position: relative;
-  z-index: 10;
-  margin: 1rem auto 0;
-  max-width: 18rem;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(126, 201, 184, 0.07), rgba(184, 169, 217, 0.08));
-  padding: 0.5rem 0.9rem;
-  text-align: center;
-  font-size: 0.72rem;
-  font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-  color: rgba(232, 220, 196, 0.92);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.09),
-    0 12px 28px -18px rgba(126, 201, 184, 0.45);
-}
-
 @media (min-width: 640px) {
   .hero-bot-cluster {
     max-width: 300px;

@@ -140,16 +140,13 @@ export function Hero() {
                     <div className="bot-icon-frame aspect-square w-full">
                       <img
                         src={assetUrl('brand-bot-icon.png')}
-                        alt="Обновлённая эмблема проекта «ВключиСебя AI»"
+                        alt="Эмблема проекта «ВключиСебя»"
                         width={512}
                         height={512}
                         decoding="async"
                         fetchPriority="high"
                       />
                     </div>
-                  </div>
-                  <div className="hero-avatar-caption">
-                    Эмблема «ВключиСебя AI» · внутренняя опора, ясность и бережное движение к себе
                   </div>
                 </div>
               </div>

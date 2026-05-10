@@ -314,12 +314,14 @@ export default function App() {
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-950/50 p-8 shadow-[0_24px_48px_-28px_rgba(0,0,0,0.75)] transition-colors duration-500 hover:border-teal-300/15 md:rounded-3xl md:p-10">
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/[0.04] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <h3 className="relative font-display text-2xl font-medium text-zinc-200 md:text-3xl">Бесплатно</h3>
-                <p className="relative mt-2 text-sm text-zinc-600">Базовый набор для ежедневной опоры</p>
+                <p className="relative mt-2 text-sm text-zinc-600">
+                  Приложение «Путь к Себе» и ключевые практики — с бережными ограничениями
+                </p>
                 <ul className="relative mt-8 space-y-4">
-                  <ListItem>Чек-ины и базовые ритуалы</ListItem>
-                  <ListItem>ИИ-поддержка с дневными лимитами</ListItem>
-                  <ListItem>Тест состояния, вдохновение, отзывы</ListItem>
-                  <ListItem>Ограниченная голосовая поддержка в боте</ListItem>
+                  <ListItem>Ежедневные чек-ины и персональные ритуалы — с дневными лимитами подборов</ListItem>
+                  <ListItem>ИИ-Венера в приложении — лимиты на сообщения и пробный доступ к отдельным функциям</ListItem>
+                  <ListItem>Диагностические тесты, вдохновение и базовые материалы для самонаблюдения</ListItem>
+                  <ListItem>Голосовые ответы поддержки в приложении — ограниченное число в неделю</ListItem>
                 </ul>
               </div>
 
@@ -329,13 +331,13 @@ export default function App() {
                 </div>
                 <h3 className="relative font-display text-2xl font-medium text-gradient-ethereal md:text-3xl">Полный доступ</h3>
                 <p className="relative mt-2 text-sm text-zinc-500">
-                  Если вы хотите углубиться: без лимитов в чате и с полным доступом к мини-приложению.
+                  Для тех, кто выбирает полную глубину: без лимитов у Венеры и доступ ко всем разделам приложения.
                 </p>
                 <ul className="relative mt-8 space-y-4">
-                  <ListItem>Безлимитная ИИ-поддержка в чате</ListItem>
-                  <ListItem>Полный доступ к «Пути к Себе» и ИИ-Венере</ListItem>
-                  <ListItem>Персональные ритуалы в чек-инах</ListItem>
-                  <ListItem>Реферальная программа для подписчиков</ListItem>
+                  <ListItem>Безлимитный диалог с ИИ-Венерой и полный контекст сопровождения</ListItem>
+                  <ListItem>Все возможности «Пути к Себе»: самореализация, материалы для работы со специалистом и не только</ListItem>
+                  <ListItem>Углублённые ритуалы и расширенные подборки в чек-инах</ListItem>
+                  <ListItem>Реферальная программа и актуальные новости для подписчиков</ListItem>
                 </ul>
               </div>
             </div>
