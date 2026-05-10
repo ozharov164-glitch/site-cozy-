@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { assetUrl } from '../lib/assets'
 import { buildCircularEcgPath } from '../lib/heroEcgPath'
@@ -6,40 +6,56 @@ import { buildCircularEcgPath } from '../lib/heroEcgPath'
 const BOT_URL = 'https://t.me/CozyReset_bot'
 
 function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
+  const pathRef = useRef<SVGPathElement>(null)
+  const [pathLen, setPathLen] = useState(0)
+
   const d = useMemo(
     () =>
       buildCircularEcgPath({
         cx: 100,
         cy: 100,
-        baseR: 88,
-        amplitude: 11,
-        samples: 900,
-        beatsPerTurn: 4,
+        /** Держим средний радиус дальше края аватарки — линия не уходит под непрозрачное фото */
+        baseR: 97,
+        amplitude: 7,
+        samples: 960,
+        beatsPerTurn: 3.5,
       }),
     [],
   )
 
+  useLayoutEffect(() => {
+    const el = pathRef.current
+    if (!el) return
+    const L = el.getTotalLength()
+    if (L > 0) setPathLen(L)
+  }, [d])
+
+  const dashLen = pathLen > 0 ? pathLen : 800
+
   return (
     <svg
-      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[2] h-[122%] w-[122%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
+      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[138%] w-[138%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
       viewBox="0 0 200 200"
       aria-hidden
     >
       <motion.path
+        key={dashLen}
+        ref={pathRef}
         d={d}
         fill="none"
-        stroke="rgba(126, 201, 184, 0.72)"
-        strokeWidth={1.05}
+        stroke="#b8f0e4"
+        strokeWidth={2.25}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
+        style={{ strokeDasharray: dashLen, strokeDashoffset: dashLen }}
         initial={false}
         animate={
           reduce
-            ? { pathLength: 1, opacity: 0.22 }
+            ? { strokeDashoffset: 0, opacity: 0.5 }
             : {
-                pathLength: [0, 1, 1],
-                opacity: [0, 0.88, 0],
+                strokeDashoffset: [dashLen, 0, 0, dashLen],
+                opacity: [0.45, 1, 0.72, 0],
               }
         }
         transition={
@@ -50,7 +66,7 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
                 repeat: Infinity,
                 repeatDelay: 0.45,
                 ease: 'easeInOut',
-                times: [0, 0.58, 1],
+                times: [0, 0.52, 0.76, 1],
               }
         }
       />
@@ -189,8 +205,7 @@ export function Hero() {
                   className="pointer-events-none absolute left-1/2 top-10 h-[min(300px,95vw)] w-[min(300px,95vw)] max-w-[340px] -translate-x-1/2 rounded-full bg-gradient-to-b from-teal-300/14 via-violet-500/[0.09] to-transparent blur-[52px] md:top-12 md:h-[min(320px,100vw)] md:w-[min(320px,100vw)] md:blur-[64px]"
                   aria-hidden
                 />
-                <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[280px]">
-                  <HeroEcgOrbit reduce={reduce} />
+                <div className="relative mx-auto w-full max-w-[260px] overflow-visible sm:max-w-[280px]">
                   <div className="relative z-[3] overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.05] to-[#07070d] p-[3px] shadow-[0_24px_64px_-28px_rgba(0,0,0,0.72)] ring-1 ring-inset ring-white/[0.05]">
                     <div className="bot-icon-frame aspect-square w-full">
                       <img
@@ -203,6 +218,7 @@ export function Hero() {
                       />
                     </div>
                   </div>
+                  <HeroEcgOrbit reduce={reduce} />
                 </div>
               </div>
             </motion.div>

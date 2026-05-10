@@ -75,7 +75,9 @@ button:focus-visible {
 }
 
 .hero-ecg-orbit {
-  filter: drop-shadow(0 0 6px rgba(126, 201, 184, 0.22));
+  filter:
+    drop-shadow(0 0 10px rgba(126, 201, 184, 0.55))
+    drop-shadow(0 0 22px rgba(126, 201, 184, 0.28));
 }
 
 .hero-vignette {
