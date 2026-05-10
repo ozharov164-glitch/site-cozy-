@@ -148,10 +148,6 @@ export default function App() {
   return (
     <>
       <div className="grain" aria-hidden />
-      <div className="psych-ornaments" aria-hidden>
-        <div className="psych-ecg psych-ecg-left" />
-        <div className="psych-ecg psych-ecg-right" />
-      </div>
       <SiteChrome />
 
       <a href="#main" className="skip-to-main">
@@ -161,6 +157,14 @@ export default function App() {
       <Hero />
 
       <main id="main" className="relative z-10">
+        <div className="psych-ornaments" aria-hidden>
+          <div className="psych-ecg psych-ecg-left psych-ecg-top" />
+          <div className="psych-ecg psych-ecg-right psych-ecg-top" />
+          <div className="psych-ecg psych-ecg-left psych-ecg-mid" />
+          <div className="psych-ecg psych-ecg-right psych-ecg-mid" />
+          <div className="psych-ecg psych-ecg-left psych-ecg-bottom" />
+          <div className="psych-ecg psych-ecg-right psych-ecg-bottom" />
+        </div>
         <section
           id="idea"
           className="scroll-mt-28 border-t border-white/[0.05] px-6 py-24 md:scroll-mt-32 md:px-10 md:py-28 lg:px-12"

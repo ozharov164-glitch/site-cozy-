@@ -77,21 +77,17 @@ button:focus-visible {
 .psych-ornaments {
   pointer-events: none;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 1400px;
+  inset: 0;
   z-index: 1;
   overflow: hidden;
 }
 
 .psych-ecg {
   position: absolute;
-  top: 260px;
-  width: min(24vw, 280px);
-  height: 26px;
-  opacity: 0.16;
-  filter: drop-shadow(0 0 6px rgba(126, 201, 184, 0.16));
+  width: min(20vw, 220px);
+  height: 18px;
+  opacity: 0.11;
+  filter: drop-shadow(0 0 4px rgba(126, 201, 184, 0.1));
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -99,20 +95,51 @@ button:focus-visible {
 }
 
 .psych-ecg-left {
-  left: -2vw;
+  left: 2.2vw;
 }
 
 .psych-ecg-right {
-  right: -2vw;
+  right: 2.2vw;
   transform: scaleX(-1);
+}
+
+.psych-ecg-top {
+  top: 14%;
+}
+
+.psych-ecg-mid {
+  top: 46%;
+}
+
+.psych-ecg-bottom {
+  top: 78%;
 }
 
 @media (max-width: 768px) {
   .psych-ecg {
-    top: 200px;
-    width: min(22vw, 130px);
-    height: 18px;
-    opacity: 0.12;
+    width: min(18vw, 84px);
+    height: 12px;
+    opacity: 0.08;
+  }
+
+  .psych-ecg-left {
+    left: 2.5vw;
+  }
+
+  .psych-ecg-right {
+    right: 2.5vw;
+  }
+
+  .psych-ecg-top {
+    top: 12%;
+  }
+
+  .psych-ecg-mid {
+    top: 48%;
+  }
+
+  .psych-ecg-bottom {
+    top: 82%;
   }
 }
 
