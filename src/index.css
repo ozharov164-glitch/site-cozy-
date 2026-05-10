@@ -334,31 +334,18 @@ button:focus-visible {
 
 .bot-icon-frame img {
   display: block;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  margin: 0;
+  width: 112%;
+  height: 112%;
+  max-width: none;
+  margin: -6% 0 0 -6%;
   object-fit: cover;
-  object-position: center;
   border-radius: 9999px;
 }
 
-/** Hero-аватар: отдельный слой, без наследования bot-icon-frame */
-.hero-avatar-image-wrap {
-  position: relative;
-  overflow: hidden;
-  border-radius: 9999px;
-  background: transparent;
-}
-
-.hero-avatar-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
-  border-radius: 9999px;
-  transform: none;
+/** Крупная иконка в герое: слегка приглушаем край кадра PNG, чтобы не читался прямоугольник файла */
+.hero-bot-cluster .bot-icon-frame img {
+  mask-image: radial-gradient(circle at 50% 48%, black 91%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 48%, black 91%, transparent 100%);
 }
 
 .glass-quote {
