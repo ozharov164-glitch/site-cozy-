@@ -21,7 +21,7 @@ export function CreatorSection() {
       <div className="creator-section-vignette" aria-hidden />
       <div className="relative z-10 mx-auto max-w-6xl">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
-          <div className="order-2 flex justify-center px-2 pb-4 pt-2 md:px-0 md:pb-6 md:pt-0 lg:order-1 lg:justify-start">
+          <div className="order-1 flex justify-center px-2 pb-4 pt-2 md:px-0 md:pb-6 md:pt-0 lg:order-1 lg:justify-start">
             <motion.div
               className="relative isolate w-full max-w-[min(100%,400px)]"
               initial={{ opacity: 0, scale: 0.97, y: 18 }}
@@ -61,10 +61,10 @@ export function CreatorSection() {
             </motion.div>
           </div>
 
-          <div className="relative z-10 order-1 text-center lg:order-2 lg:text-left">
+          <div className="relative z-10 order-2 text-center lg:order-2 lg:text-left">
             <SectionLabel>Создатель</SectionLabel>
             <h2 className="mx-auto mt-3 max-w-xl font-display text-[1.85rem] font-medium leading-[1.12] tracking-tight text-white sm:text-4xl md:max-w-none md:text-[2.65rem] md:leading-[1.1] lg:text-[3rem]">
-              Честность, тепло и ответственность — не маркетинг ради маркетинга
+              Честность, тепло и ответственность — не слоган, а рабочий принцип
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-zinc-300 lg:mx-0 lg:max-w-none">
               Меня зовут <strong className="font-medium text-zinc-200">Дмитрий</strong>. Я студент медицинского университета и давно увлекаюсь
@@ -72,7 +72,7 @@ export function CreatorSection() {
               человека в тревоге, усталости и в поиске опоры.
             </p>
             <p className="mx-auto mt-5 max-w-xl text-base font-light leading-relaxed text-zinc-400 lg:mx-0 lg:max-w-none md:text-lg">
-              «ВключиСебя» я развиваю из простого убеждения: помощь не должна ощущаться очередным маркетинговым ходом. Хочется сервиса{' '}
+              «ВключиСебя» я развиваю из простого убеждения: помощь не должна ощущаться маркетинговым ходом. Хочется сервиса{' '}
               <strong className="font-medium text-zinc-300">честного по духу</strong> — с понятными границами (я не врач и не психотерапевт;
               это прямо сказано в дисклеймере), с уважением к вашему темпу и без обещаний «стать счастливым за выходные».
             </p>

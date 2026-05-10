@@ -35,7 +35,7 @@ const botFeatures: FeatureItem[] = [
   },
   {
     title: 'Новости проекта',
-    text: 'В боте и канале обновлений вы видите, как развивается «ВключиСебя AI»: новые разделы, улучшения и ключевые релизы.',
+    text: 'В боте и канале обновлений вы видите, как развивается «ВключиСебя AI»: новые разделы, улучшения и ключевые релизы без лишнего шума.',
     icon: 'spark',
   },
   {
@@ -113,7 +113,7 @@ function PathNarrative() {
             с вашим аккаунтом в боте: данные не теряются при переходе из бота в приложение и обратно.
           </p>
           <p className="mt-5 text-base font-light leading-relaxed text-zinc-400 md:text-lg">
-            Здесь удобно возвращаться к себе <strong className="font-medium text-zinc-200">регулярно</strong>: не раз в месяц «вспомнить
+            Здесь удобно возвращаться к себе <strong className="font-medium text-zinc-200">регулярно</strong>: не раз в месяц «вспоминать
             про заботу о себе», а понемногу и в своём темпе — вы открываете приложение, отмечаете настроение, делаете практику, фиксируете
             инсайт, чтобы потом обсудить его с Венерой или взять его с собой на приём к психологу.
           </p>
@@ -148,6 +148,12 @@ export default function App() {
   return (
     <>
       <div className="grain" aria-hidden />
+      <div className="psych-ornaments" aria-hidden>
+        <div className="psych-ecg psych-ecg-left" />
+        <div className="psych-ecg psych-ecg-right" />
+        <div className="psych-calm psych-calm-left" />
+        <div className="psych-calm psych-calm-right" />
+      </div>
       <SiteChrome />
 
       <a href="#main" className="skip-to-main">
