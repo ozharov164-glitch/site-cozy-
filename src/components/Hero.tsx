@@ -1,7 +1,62 @@
+import { useMemo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { assetUrl } from '../lib/assets'
+import { buildCircularEcgPath } from '../lib/heroEcgPath'
 
 const BOT_URL = 'https://t.me/CozyReset_bot'
+
+function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
+  const d = useMemo(
+    () =>
+      buildCircularEcgPath({
+        cx: 100,
+        cy: 100,
+        baseR: 88,
+        amplitude: 11,
+        samples: 900,
+        beatsPerTurn: 4,
+      }),
+    [],
+  )
+
+  return (
+    <svg
+      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[2] h-[122%] w-[122%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
+      viewBox="0 0 200 200"
+      aria-hidden
+    >
+      <motion.path
+        d={d}
+        fill="none"
+        stroke="rgba(126, 201, 184, 0.72)"
+        strokeWidth={1.05}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+        initial={false}
+        animate={
+          reduce
+            ? { pathLength: 1, opacity: 0.22 }
+            : {
+                pathLength: [0, 1, 1],
+                opacity: [0, 0.88, 0],
+              }
+        }
+        transition={
+          reduce
+            ? { duration: 0 }
+            : {
+                duration: 5.4,
+                repeat: Infinity,
+                repeatDelay: 0.45,
+                ease: 'easeInOut',
+                times: [0, 0.58, 1],
+              }
+        }
+      />
+    </svg>
+  )
+}
 
 export function Hero() {
   const reduce = useReducedMotion()
@@ -135,7 +190,8 @@ export function Hero() {
                   aria-hidden
                 />
                 <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[280px]">
-                  <div className="relative overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.05] to-[#07070d] p-[3px] shadow-[0_24px_64px_-28px_rgba(0,0,0,0.72)] ring-1 ring-inset ring-white/[0.05]">
+                  <HeroEcgOrbit reduce={reduce} />
+                  <div className="relative z-[3] overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.05] to-[#07070d] p-[3px] shadow-[0_24px_64px_-28px_rgba(0,0,0,0.72)] ring-1 ring-inset ring-white/[0.05]">
                     <div className="bot-icon-frame aspect-square w-full">
                       <img
                         src={assetUrl('brand-bot-icon.png')}

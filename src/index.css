@@ -74,73 +74,8 @@ button:focus-visible {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.psych-ornaments {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.psych-ecg {
-  position: absolute;
-  width: min(20vw, 220px);
-  height: 18px;
-  opacity: 0.11;
-  filter: drop-shadow(0 0 4px rgba(126, 201, 184, 0.1));
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 54'%3E%3Cpath d='M0 27h36l8-14 8 28 10-14h34l8-8 8 16 10-8h42l8-20 10 40 10-20h40l8-12 8 24 10-12h50' fill='none' stroke='%237ec9b8' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-.psych-ecg-left {
-  left: 2.2vw;
-}
-
-.psych-ecg-right {
-  right: 2.2vw;
-  transform: scaleX(-1);
-}
-
-.psych-ecg-top {
-  top: 14%;
-}
-
-.psych-ecg-mid {
-  top: 46%;
-}
-
-.psych-ecg-bottom {
-  top: 78%;
-}
-
-@media (max-width: 768px) {
-  .psych-ecg {
-    width: min(18vw, 84px);
-    height: 12px;
-    opacity: 0.08;
-  }
-
-  .psych-ecg-left {
-    left: 2.5vw;
-  }
-
-  .psych-ecg-right {
-    right: 2.5vw;
-  }
-
-  .psych-ecg-top {
-    top: 12%;
-  }
-
-  .psych-ecg-mid {
-    top: 48%;
-  }
-
-  .psych-ecg-bottom {
-    top: 82%;
-  }
+.hero-ecg-orbit {
+  filter: drop-shadow(0 0 6px rgba(126, 201, 184, 0.22));
 }
 
 .hero-vignette {
