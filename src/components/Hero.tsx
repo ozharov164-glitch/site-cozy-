@@ -14,10 +14,11 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
       buildCircularEcgPath({
         cx: 100,
         cy: 100,
-        baseR: 98,
-        amplitude: 9,
-        samples: 960,
-        beatsPerTurn: 3.5,
+        baseR: 95,
+        amplitude: 12.5,
+        samples: 1280,
+        /** Целое число ударов за оборот — контур замыкается без щели */
+        beatsPerTurn: 4,
       }),
     [],
   )
@@ -36,7 +37,7 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
     if (reduce) {
       el.style.strokeDasharray = ''
       el.style.strokeDashoffset = '0'
-      el.style.opacity = '0.58'
+      el.style.opacity = '0.62'
       return
     }
 
@@ -47,15 +48,16 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
     try {
       animation = el.animate(
         [
-          { strokeDashoffset: len, opacity: 0.52 },
-          { strokeDashoffset: 0, opacity: 1, offset: 0.5 },
-          { strokeDashoffset: 0, opacity: 0.88, offset: 0.78 },
-          { strokeDashoffset: len, opacity: 0.34 },
+          { strokeDashoffset: len, opacity: 0.2 },
+          { strokeDashoffset: len * 0.85, opacity: 0.42, offset: 0.08 },
+          { strokeDashoffset: 0, opacity: 1, offset: 0.46 },
+          { strokeDashoffset: 0, opacity: 0.93, offset: 0.76 },
+          { strokeDashoffset: len, opacity: 0.2 },
         ],
         {
-          duration: 5600,
+          duration: 11800,
           iterations: Number.POSITIVE_INFINITY,
-          easing: 'ease-in-out',
+          easing: 'cubic-bezier(0.48, 0.06, 0.52, 0.94)',
         },
       )
     } catch {
@@ -81,10 +83,11 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
         ref={pathRef}
         d={d}
         fill="none"
-        stroke="#cffaf2"
-        strokeWidth={3}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke="#ff3a3a"
+        strokeWidth={2.4}
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
+        strokeMiterlimit={12}
         vectorEffect="non-scaling-stroke"
         style={{ visibility: len === 0 ? 'hidden' : 'visible' }}
       />

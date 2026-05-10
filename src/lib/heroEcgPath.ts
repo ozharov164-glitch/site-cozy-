@@ -1,23 +1,39 @@
-/** Упрощённая форма одного кардиоцикла в нормированной фазе [0, 1). */
+/**
+ * Классическая угловатая ЭКГ «как на мониторе»: изолиния, P, QRS (Q–R–S), ST, T.
+ * Вершины — ломаная в фазе одного удара [0, 1]; амплитуда нормирована (пик R ≈ 1).
+ */
+const CLASSIC_BEAT_POLYLINE: ReadonlyArray<readonly [number, number]> = [
+  [0.0, 0.0],
+  [0.065, 0.0],
+  [0.088, 0.13],
+  [0.112, 0.0],
+  [0.165, 0.0],
+  [0.184, -0.045],
+  [0.198, 1.0],
+  [0.214, -0.52],
+  [0.232, 0.0],
+  [0.265, 0.0],
+  [0.318, 0.34],
+  [0.375, 0.0],
+  [0.465, 0.0],
+  [1.0, 0.0],
+]
 
-function smoothstep(t: number): number {
-  const s = Math.max(0, Math.min(1, t))
-  return s * s * (3 - 2 * s)
+export function sampleClassicBeatAmplitude(phase01: number): number {
+  const x = ((phase01 % 1) + 1) % 1
+  const pts = CLASSIC_BEAT_POLYLINE
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [p0, a0] = pts[i]
+    const [p1, a1] = pts[i + 1]
+    if (x >= p0 && x <= p1) {
+      const u = p1 === p0 ? 0 : (x - p0) / (p1 - p0)
+      return a0 + u * (a1 - a0)
+    }
+  }
+  return pts[pts.length - 1][1]
 }
 
-export function ecgRadialBump(phase: number): number {
-  const x = phase - Math.floor(phase)
-  if (x < 0.07) return 0
-  if (x < 0.13) return 0.32 * smoothstep((x - 0.07) / 0.06)
-  if (x < 0.19) return 0.32 * (1 - smoothstep((x - 0.13) / 0.06))
-  if (x < 0.215) return -0.14
-  if (x < 0.235) return 1
-  if (x < 0.265) return -0.44
-  if (x < 0.3) return 0
-  if (x < 0.52) return 0.4 * Math.sin(((x - 0.3) / 0.22) * Math.PI)
-  return 0
-}
-
+/** Замыкает круг без разрыва, если beatsPerTurn — целое число. */
 export function buildCircularEcgPath(opts: {
   cx: number
   cy: number
@@ -32,7 +48,8 @@ export function buildCircularEcgPath(opts: {
   for (let i = 0; i <= samples; i++) {
     const t = i / samples
     const theta = t * Math.PI * 2 + thetaOffset
-    const bump = ecgRadialBump(t * beatsPerTurn)
+    const phase = (t * beatsPerTurn) % 1
+    const bump = sampleClassicBeatAmplitude(phase)
     const r = baseR + bump * amplitude
     const x = cx + r * Math.cos(theta)
     const y = cy + r * Math.sin(theta)
