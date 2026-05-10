@@ -151,8 +151,6 @@ export default function App() {
       <div className="psych-ornaments" aria-hidden>
         <div className="psych-ecg psych-ecg-left" />
         <div className="psych-ecg psych-ecg-right" />
-        <div className="psych-calm psych-calm-left" />
-        <div className="psych-calm psych-calm-right" />
       </div>
       <SiteChrome />
 

@@ -76,23 +76,26 @@ button:focus-visible {
 
 .psych-ornaments {
   pointer-events: none;
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1400px;
   z-index: 1;
   overflow: hidden;
 }
 
 .psych-ecg {
   position: absolute;
-  top: 23%;
-  width: min(34vw, 440px);
-  height: 54px;
-  opacity: 0.28;
-  filter: drop-shadow(0 0 10px rgba(126, 201, 184, 0.24));
+  top: 260px;
+  width: min(24vw, 280px);
+  height: 26px;
+  opacity: 0.16;
+  filter: drop-shadow(0 0 6px rgba(126, 201, 184, 0.16));
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 54'%3E%3Cpath d='M0 27h36l8-14 8 28 10-14h34l8-8 8 16 10-8h42l8-20 10 40 10-20h40l8-12 8 24 10-12h50' fill='none' stroke='%237ec9b8' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 54'%3E%3Cpath d='M0 27h36l8-14 8 28 10-14h34l8-8 8 16 10-8h42l8-20 10 40 10-20h40l8-12 8 24 10-12h50' fill='none' stroke='%237ec9b8' stroke-width='1.35' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 .psych-ecg-left {
@@ -104,73 +107,12 @@ button:focus-visible {
   transform: scaleX(-1);
 }
 
-.psych-calm {
-  position: absolute;
-  top: 17%;
-  width: 92px;
-  height: 92px;
-  border-radius: 9999px;
-  border: 1px solid rgba(126, 201, 184, 0.26);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 0 26px rgba(184, 169, 217, 0.14);
-  opacity: 0.42;
-}
-
-.psych-calm::before,
-.psych-calm::after {
-  content: '';
-  position: absolute;
-  border-radius: 9999px;
-}
-
-.psych-calm::before {
-  inset: 16px;
-  border: 1px solid rgba(201, 169, 98, 0.22);
-}
-
-.psych-calm::after {
-  left: 50%;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  transform: translate(-50%, -50%);
-  background: rgba(126, 201, 184, 0.72);
-}
-
-.psych-calm-left {
-  left: 9vw;
-}
-
-.psych-calm-right {
-  right: 9vw;
-}
-
 @media (max-width: 768px) {
   .psych-ecg {
-    top: 20%;
-    width: min(40vw, 220px);
-    height: 42px;
-    opacity: 0.2;
-  }
-
-  .psych-calm {
-    top: 15%;
-    width: 64px;
-    height: 64px;
-    opacity: 0.28;
-  }
-
-  .psych-calm::before {
-    inset: 12px;
-  }
-
-  .psych-calm-left {
-    left: 6vw;
-  }
-
-  .psych-calm-right {
-    right: 6vw;
+    top: 200px;
+    width: min(22vw, 130px);
+    height: 18px;
+    opacity: 0.12;
   }
 }
 
