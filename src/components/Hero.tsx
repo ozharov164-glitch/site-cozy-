@@ -14,10 +14,10 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
       buildCircularEcgPath({
         cx: 100,
         cy: 100,
-        baseR: 95,
-        amplitude: 12.5,
-        samples: 1280,
-        /** Целое число ударов за оборот — контур замыкается без щели */
+        /** Ближе к краю аватарки: меньший средний радиус и слабая модуляция → почти круг */
+        baseR: 91,
+        amplitude: 5.25,
+        samples: 1440,
         beatsPerTurn: 4,
       }),
     [],
@@ -75,7 +75,7 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
 
   return (
     <svg
-      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[25] h-[152%] w-[152%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
+      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[25] h-[138%] w-[138%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
       viewBox="0 0 200 200"
       aria-hidden
     >
@@ -83,8 +83,8 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
         ref={pathRef}
         d={d}
         fill="none"
-        stroke="#ff3a3a"
-        strokeWidth={2.4}
+        stroke="#9ae8d4"
+        strokeWidth={2.15}
         strokeLinecap="butt"
         strokeLinejoin="miter"
         strokeMiterlimit={12}
