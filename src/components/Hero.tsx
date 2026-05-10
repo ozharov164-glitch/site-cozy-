@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useMemo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { assetUrl } from '../lib/assets'
 import { buildCircularEcgPath } from '../lib/heroEcgPath'
@@ -6,15 +6,11 @@ import { buildCircularEcgPath } from '../lib/heroEcgPath'
 const BOT_URL = 'https://t.me/CozyReset_bot'
 
 function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
-  const pathRef = useRef<SVGPathElement>(null)
-  const [len, setLen] = useState(0)
-
   const d = useMemo(
     () =>
       buildCircularEcgPath({
         cx: 100,
         cy: 100,
-        /** Почти круг: слабая радиальная модуляция + меньший svg scale в Hero */
         baseR: 93,
         amplitude: 3.05,
         segments: 720,
@@ -23,62 +19,6 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
     [],
   )
 
-  useLayoutEffect(() => {
-    const el = pathRef.current
-    if (!el) return
-    const L = el.getTotalLength()
-    if (L > 0) setLen(L)
-  }, [d])
-
-  useEffect(() => {
-    const el = pathRef.current
-    if (!el || len <= 0) return
-
-    if (reduce) {
-      el.style.strokeDasharray = ''
-      el.style.strokeDashoffset = '0'
-      el.style.opacity = '0.62'
-      el.style.willChange = ''
-      return
-    }
-
-    el.style.strokeDasharray = String(len)
-    el.style.strokeDashoffset = String(len)
-    el.style.opacity = '0.93'
-    el.style.willChange = 'stroke-dashoffset'
-
-    let animation: Animation | undefined
-    try {
-      animation = el.animate(
-        [
-          { strokeDashoffset: len },
-          { strokeDashoffset: len * 0.88, offset: 0.055 },
-          { strokeDashoffset: 0, offset: 0.43 },
-          { strokeDashoffset: 0, offset: 0.735 },
-          { strokeDashoffset: len },
-        ],
-        {
-          duration: 13200,
-          iterations: Number.POSITIVE_INFINITY,
-          easing: 'cubic-bezier(0.34, 0.06, 0.22, 1)',
-          fill: 'both',
-        },
-      )
-    } catch {
-      el.style.strokeDashoffset = '0'
-      el.style.opacity = '0.9'
-      el.style.willChange = ''
-    }
-
-    return () => {
-      animation?.cancel()
-      el.style.strokeDasharray = ''
-      el.style.strokeDashoffset = ''
-      el.style.opacity = ''
-      el.style.willChange = ''
-    }
-  }, [len, reduce])
-
   return (
     <svg
       className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[70] h-[126%] w-[126%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
@@ -86,7 +26,6 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
       aria-hidden
     >
       <path
-        ref={pathRef}
         d={d}
         fill="none"
         stroke="#9ae8d4"
@@ -96,7 +35,7 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
         strokeMiterlimit={12}
         shapeRendering="geometricPrecision"
         vectorEffect="non-scaling-stroke"
-        style={{ visibility: len === 0 ? 'hidden' : 'visible' }}
+        style={{ opacity: reduce ? 0.62 : 0.93 }}
       />
     </svg>
   )

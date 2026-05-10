@@ -76,9 +76,6 @@ button:focus-visible {
 }
 
 .hero-ecg-orbit {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  /* Один мягкий слой свечения — меньше нагрузка на композитинг, чем несколько drop-shadow */
   filter: drop-shadow(0 0 14px rgba(126, 201, 184, 0.38));
 }
 
