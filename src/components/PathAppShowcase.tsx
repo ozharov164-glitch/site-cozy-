@@ -35,7 +35,7 @@ const FOREGROUND_STYLE_BY_SLIDE: Record<(typeof SLIDES)[number]['id'], string> =
   venus: 'object-cover object-top',
   features: 'object-cover object-top',
   neuro: 'object-contain object-center scale-[0.94]',
-  pdf: 'object-cover object-top',
+  pdf: 'object-contain object-center scale-[0.94]',
   tests: 'object-cover object-top',
 }
 
