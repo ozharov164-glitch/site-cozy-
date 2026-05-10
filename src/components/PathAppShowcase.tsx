@@ -31,6 +31,13 @@ const SLIDES = [
 ] as const
 
 const INTERVAL_MS = 5500
+const FOREGROUND_STYLE_BY_SLIDE: Record<(typeof SLIDES)[number]['id'], string> = {
+  venus: 'object-cover object-top',
+  features: 'object-cover object-top',
+  neuro: 'object-contain object-center scale-[0.94]',
+  pdf: 'object-cover object-top',
+  tests: 'object-cover object-top',
+}
 
 export function PathAppShowcase() {
   const reduce = useReducedMotion()
@@ -99,11 +106,23 @@ export function PathAppShowcase() {
             >
               <img
                 src={assetUrl(slide.src)}
+                alt=""
+                aria-hidden
+                width={800}
+                height={1200}
+                sizes="(max-width: 640px) 85vw, 300px"
+                className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-45 blur-xl"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#05070f]/20 via-transparent to-[#05070f]/22" aria-hidden />
+              <img
+                src={assetUrl(slide.src)}
                 alt={slide.alt}
                 width={800}
                 height={1200}
                 sizes="(max-width: 640px) 85vw, 300px"
-                className="h-full w-full object-cover object-top"
+                className={`relative z-[1] h-full w-full ${FOREGROUND_STYLE_BY_SLIDE[slide.id]}`}
                 loading="lazy"
                 decoding="async"
               />
