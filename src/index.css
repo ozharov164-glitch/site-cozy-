@@ -345,10 +345,12 @@ button:focus-visible {
 
 /** Крупная иконка в герое: слегка приглушаем край кадра PNG, чтобы не читался прямоугольник файла */
 .hero-bot-cluster .bot-icon-frame img {
-  transform: scale(1.11);
+  object-fit: contain;
+  object-position: center;
+  transform: scale(1.02);
   transform-origin: center;
-  mask-image: radial-gradient(circle at 50% 48%, black 91%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at 50% 48%, black 91%, transparent 100%);
+  mask-image: radial-gradient(circle at 50% 48%, black 95%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 48%, black 95%, transparent 100%);
 }
 
 .glass-quote {
