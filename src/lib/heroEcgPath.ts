@@ -1,31 +1,35 @@
 /**
- * ЭКГ «мониторный» вид: ломаная изолиния → P → PR → QRS (Q–R–S) → ST → T → диастола.
- * Амплитуда нормирована (R ≈ +1); вершины подобраны под узнаваемые пропорции зубцов.
+ * Один кардиоцикл как ломаная: изолиния → P → PR → QRS → ST → T → диастола.
+ * Амплитуда нормирована (R ≈ +1). Фазы подобраны под узнаваемый «мониторный» вид.
  */
 const CLASSIC_BEAT_POLYLINE: ReadonlyArray<readonly [number, number]> = [
   [0.0, 0.0],
-  [0.036, 0.0],
-  [0.052, 0.0],
-  /* P — компактный зубец */
-  [0.064, 0.102],
-  [0.08, 0.0],
+  [0.024, 0.0],
+  [0.038, 0.0],
+  /* P — узкий зубец */
+  [0.048, 0.068],
+  [0.058, 0.1],
+  [0.069, 0.0],
   /* PR */
-  [0.112, 0.0],
-  /* QRS — узкий комплекс: Q↓ → R↑ → S↓ */
-  [0.132, -0.032],
-  [0.144, -0.072],
-  [0.156, 1.0],
-  [0.168, -0.46],
-  [0.184, 0.0],
-  /* ST — изолиния */
-  [0.204, 0.0],
-  /* T — шире P, ломаная аппроксимация асимметричного бугорка */
-  [0.228, 0.078],
-  [0.256, 0.285],
-  [0.286, 0.068],
-  [0.308, 0.0],
-  /* диастола до следующего удара */
-  [0.355, 0.0],
+  [0.088, 0.0],
+  /* QRS — резкий комплекс */
+  [0.104, -0.022],
+  [0.112, -0.058],
+  [0.12, -0.074],
+  [0.128, 1.0],
+  [0.136, -0.42],
+  [0.146, -0.008],
+  [0.154, 0.0],
+  /* ST */
+  [0.168, 0.0],
+  /* T — четыре точки (асимметричный бугорок) */
+  [0.182, 0.042],
+  [0.198, 0.218],
+  [0.218, 0.235],
+  [0.238, 0.058],
+  [0.252, 0.0],
+  /* диастола */
+  [0.295, 0.0],
   [1.0, 0.0],
 ]
 
@@ -43,20 +47,23 @@ export function sampleClassicBeatAmplitude(phase01: number): number {
   return pts[pts.length - 1][1]
 }
 
-/** Замыкает круг без разрыва при целом beatsPerTurn. */
+/**
+ * Замкнутый контур: i = 0 … segments включительно (t = 0 и t = 1 совпадают в точке старта —
+ * «точка A» на окружности при целом beatsPerTurn).
+ */
 export function buildCircularEcgPath(opts: {
   cx: number
   cy: number
   baseR: number
   amplitude: number
-  samples: number
+  segments: number
   beatsPerTurn: number
   thetaOffset?: number
 }): string {
-  const { cx, cy, baseR, amplitude, samples, beatsPerTurn, thetaOffset = -Math.PI / 2 } = opts
+  const { cx, cy, baseR, amplitude, segments, beatsPerTurn, thetaOffset = -Math.PI / 2 } = opts
   const parts: string[] = []
-  for (let i = 0; i <= samples; i++) {
-    const t = i / samples
+  for (let i = 0; i <= segments; i++) {
+    const t = i / segments
     const theta = t * Math.PI * 2 + thetaOffset
     const phase = (t * beatsPerTurn) % 1
     const bump = sampleClassicBeatAmplitude(phase)
@@ -65,5 +72,6 @@ export function buildCircularEcgPath(opts: {
     const y = cy + r * Math.sin(theta)
     parts.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(2)} ${y.toFixed(2)}`)
   }
+  parts.push('Z')
   return parts.join(' ')
 }

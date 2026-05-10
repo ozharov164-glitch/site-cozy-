@@ -14,11 +14,11 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
       buildCircularEcgPath({
         cx: 100,
         cy: 100,
-        /** Ближе к краю аватарки: меньший средний радиус и слабая модуляция → почти круг */
-        baseR: 91,
-        amplitude: 5.25,
-        samples: 1440,
-        beatsPerTurn: 4,
+        /** Почти круг: слабая радиальная модуляция + меньший svg scale в Hero */
+        baseR: 93,
+        amplitude: 3.05,
+        segments: 720,
+        beatsPerTurn: 8,
       }),
     [],
   )
@@ -38,31 +38,36 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
       el.style.strokeDasharray = ''
       el.style.strokeDashoffset = '0'
       el.style.opacity = '0.62'
+      el.style.willChange = ''
       return
     }
 
     el.style.strokeDasharray = String(len)
     el.style.strokeDashoffset = String(len)
+    el.style.opacity = '0.93'
+    el.style.willChange = 'stroke-dashoffset'
 
     let animation: Animation | undefined
     try {
       animation = el.animate(
         [
-          { strokeDashoffset: len, opacity: 0.2 },
-          { strokeDashoffset: len * 0.85, opacity: 0.42, offset: 0.08 },
-          { strokeDashoffset: 0, opacity: 1, offset: 0.46 },
-          { strokeDashoffset: 0, opacity: 0.93, offset: 0.76 },
-          { strokeDashoffset: len, opacity: 0.2 },
+          { strokeDashoffset: len },
+          { strokeDashoffset: len * 0.88, offset: 0.055 },
+          { strokeDashoffset: 0, offset: 0.43 },
+          { strokeDashoffset: 0, offset: 0.735 },
+          { strokeDashoffset: len },
         ],
         {
-          duration: 11800,
+          duration: 13200,
           iterations: Number.POSITIVE_INFINITY,
-          easing: 'cubic-bezier(0.48, 0.06, 0.52, 0.94)',
+          easing: 'cubic-bezier(0.34, 0.06, 0.22, 1)',
+          fill: 'both',
         },
       )
     } catch {
       el.style.strokeDashoffset = '0'
       el.style.opacity = '0.9'
+      el.style.willChange = ''
     }
 
     return () => {
@@ -70,12 +75,13 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
       el.style.strokeDasharray = ''
       el.style.strokeDashoffset = ''
       el.style.opacity = ''
+      el.style.willChange = ''
     }
   }, [len, reduce])
 
   return (
     <svg
-      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[25] h-[138%] w-[138%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
+      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[70] h-[126%] w-[126%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
       viewBox="0 0 200 200"
       aria-hidden
     >
@@ -88,6 +94,7 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
         strokeLinecap="butt"
         strokeLinejoin="miter"
         strokeMiterlimit={12}
+        shapeRendering="geometricPrecision"
         vectorEffect="non-scaling-stroke"
         style={{ visibility: len === 0 ? 'hidden' : 'visible' }}
       />
@@ -216,17 +223,17 @@ export function Hero() {
             </div>
 
             <motion.div
-              className="mx-auto flex w-full max-w-[320px] flex-col items-center justify-center lg:mx-0 lg:max-w-none"
+              className="relative z-[32] mx-auto flex w-full max-w-[320px] flex-col items-center justify-center lg:mx-0 lg:max-w-none"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: 'spring', stiffness: 200, damping: 22, mass: 1, delay: 0.35 }}
             >
               <div className="hero-bot-cluster">
                 <div
-                  className="pointer-events-none absolute left-1/2 top-10 h-[min(300px,95vw)] w-[min(300px,95vw)] max-w-[340px] -translate-x-1/2 rounded-full bg-gradient-to-b from-teal-300/14 via-violet-500/[0.09] to-transparent blur-[52px] md:top-12 md:h-[min(320px,100vw)] md:w-[min(320px,100vw)] md:blur-[64px]"
+                  className="pointer-events-none absolute left-1/2 top-10 z-0 h-[min(300px,95vw)] w-[min(300px,95vw)] max-w-[340px] -translate-x-1/2 rounded-full bg-gradient-to-b from-teal-300/14 via-violet-500/[0.09] to-transparent blur-[52px] md:top-12 md:h-[min(320px,100vw)] md:w-[min(320px,100vw)] md:blur-[64px]"
                   aria-hidden
                 />
-                <div className="relative mx-auto w-full max-w-[260px] overflow-visible sm:max-w-[280px]">
+                <div className="relative z-[10] mx-auto w-full max-w-[260px] overflow-visible sm:max-w-[280px]">
                   <div className="relative z-[3] overflow-hidden rounded-full border border-white/[0.09] bg-gradient-to-b from-white/[0.05] to-[#07070d] p-[3px] shadow-[0_24px_64px_-28px_rgba(0,0,0,0.72)] ring-1 ring-inset ring-white/[0.05]">
                     <div className="bot-icon-frame aspect-square w-full">
                       <img

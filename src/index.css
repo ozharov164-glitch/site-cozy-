@@ -76,10 +76,10 @@ button:focus-visible {
 }
 
 .hero-ecg-orbit {
-  filter:
-    drop-shadow(0 0 2px rgba(168, 224, 212, 0.95))
-    drop-shadow(0 0 10px rgba(126, 201, 184, 0.55))
-    drop-shadow(0 0 22px rgba(126, 201, 184, 0.22));
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  /* Один мягкий слой свечения — меньше нагрузка на композитинг, чем несколько drop-shadow */
+  filter: drop-shadow(0 0 14px rgba(126, 201, 184, 0.38));
 }
 
 .hero-vignette {
