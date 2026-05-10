@@ -90,9 +90,9 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 28, mass: 0.9, delay: 0.42 }}
               >
-                Бот с ИИ-поддержкой, чек-инами и мини-приложением <strong className="font-medium text-zinc-300">«Путь к Себе»</strong> — с
-                тестами, практиками и <strong className="font-medium text-zinc-300">ИИ-Венерой</strong>, которая сопровождает вас шаг за шагом
-                без спешки и оценок.
+                Новая концепция проекта: мини-приложение <strong className="font-medium text-zinc-300">«Путь к Себе»</strong> стало главным
+                пространством для работы с собой, а бот отвечает за доступ, коммуникацию и сопровождение. Внутри приложения — тесты, практики и{' '}
+                <strong className="font-medium text-zinc-300">ИИ-Венера</strong>, которая поддерживает вас шаг за шагом без спешки и давления.
               </motion.p>
               <motion.div
                 className="flex flex-wrap items-center gap-3 sm:gap-4"
@@ -139,7 +139,7 @@ export function Hero() {
                     <div className="bot-icon-frame aspect-square w-full">
                       <img
                         src={assetUrl('brand-bot-icon.png')}
-                        alt="Иконка бота «ВключиСебя»: сердце и росток"
+                        alt="Обновлённая эмблема проекта «ВключиСебя AI»"
                         width={512}
                         height={512}
                         decoding="async"
@@ -148,7 +148,7 @@ export function Hero() {
                     </div>
                   </div>
                   <p className="relative z-10 mx-auto mt-6 max-w-[18rem] text-center text-xs font-light leading-relaxed text-zinc-400 md:mt-5 md:text-[0.8125rem]">
-                    Символ бота — забота о вас и бережный рост в одном знаке.
+                    Обновлённый символ проекта: внутренняя опора, ясность и бережное движение к себе.
                   </p>
                 </div>
               </div>
