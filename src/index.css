@@ -347,9 +347,14 @@ button:focus-visible {
 .hero-bot-cluster .bot-icon-frame img {
   object-fit: cover;
   object-position: center;
-  transform: none;
+  transform: scale(1.18);
   mask-image: none;
   -webkit-mask-image: none;
+}
+
+.hero-bot-cluster .bot-icon-frame {
+  background: transparent;
+  box-shadow: none;
 }
 
 .glass-quote {
