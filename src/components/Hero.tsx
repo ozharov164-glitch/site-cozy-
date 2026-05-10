@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { assetUrl } from '../lib/assets'
 import { buildCircularEcgPath } from '../lib/heroEcgPath'
@@ -7,16 +7,15 @@ const BOT_URL = 'https://t.me/CozyReset_bot'
 
 function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
   const pathRef = useRef<SVGPathElement>(null)
-  const [pathLen, setPathLen] = useState(0)
+  const [len, setLen] = useState(0)
 
   const d = useMemo(
     () =>
       buildCircularEcgPath({
         cx: 100,
         cy: 100,
-        /** Держим средний радиус дальше края аватарки — линия не уходит под непрозрачное фото */
-        baseR: 97,
-        amplitude: 7,
+        baseR: 98,
+        amplitude: 9,
         samples: 960,
         beatsPerTurn: 3.5,
       }),
@@ -27,48 +26,67 @@ function HeroEcgOrbit({ reduce }: { reduce: boolean }) {
     const el = pathRef.current
     if (!el) return
     const L = el.getTotalLength()
-    if (L > 0) setPathLen(L)
+    if (L > 0) setLen(L)
   }, [d])
 
-  const dashLen = pathLen > 0 ? pathLen : 800
+  useEffect(() => {
+    const el = pathRef.current
+    if (!el || len <= 0) return
+
+    if (reduce) {
+      el.style.strokeDasharray = ''
+      el.style.strokeDashoffset = '0'
+      el.style.opacity = '0.58'
+      return
+    }
+
+    el.style.strokeDasharray = String(len)
+    el.style.strokeDashoffset = String(len)
+
+    let animation: Animation | undefined
+    try {
+      animation = el.animate(
+        [
+          { strokeDashoffset: len, opacity: 0.52 },
+          { strokeDashoffset: 0, opacity: 1, offset: 0.5 },
+          { strokeDashoffset: 0, opacity: 0.88, offset: 0.78 },
+          { strokeDashoffset: len, opacity: 0.34 },
+        ],
+        {
+          duration: 5600,
+          iterations: Number.POSITIVE_INFINITY,
+          easing: 'ease-in-out',
+        },
+      )
+    } catch {
+      el.style.strokeDashoffset = '0'
+      el.style.opacity = '0.9'
+    }
+
+    return () => {
+      animation?.cancel()
+      el.style.strokeDasharray = ''
+      el.style.strokeDashoffset = ''
+      el.style.opacity = ''
+    }
+  }, [len, reduce])
 
   return (
     <svg
-      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[138%] w-[138%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
+      className="hero-ecg-orbit pointer-events-none absolute left-1/2 top-1/2 z-[25] h-[152%] w-[152%] max-w-none -translate-x-1/2 -translate-y-1/2 overflow-visible"
       viewBox="0 0 200 200"
       aria-hidden
     >
-      <motion.path
-        key={dashLen}
+      <path
         ref={pathRef}
         d={d}
         fill="none"
-        stroke="#b8f0e4"
-        strokeWidth={2.25}
+        stroke="#cffaf2"
+        strokeWidth={3}
         strokeLinecap="round"
         strokeLinejoin="round"
         vectorEffect="non-scaling-stroke"
-        style={{ strokeDasharray: dashLen, strokeDashoffset: dashLen }}
-        initial={false}
-        animate={
-          reduce
-            ? { strokeDashoffset: 0, opacity: 0.5 }
-            : {
-                strokeDashoffset: [dashLen, 0, 0, dashLen],
-                opacity: [0.45, 1, 0.72, 0],
-              }
-        }
-        transition={
-          reduce
-            ? { duration: 0 }
-            : {
-                duration: 5.4,
-                repeat: Infinity,
-                repeatDelay: 0.45,
-                ease: 'easeInOut',
-                times: [0, 0.52, 0.76, 1],
-              }
-        }
+        style={{ visibility: len === 0 ? 'hidden' : 'visible' }}
       />
     </svg>
   )
@@ -80,7 +98,7 @@ export function Hero() {
   return (
     <header
       id="top"
-      className="relative flex min-h-[100svh] flex-col md:min-h-[92vh]"
+      className="relative z-[18] flex min-h-[100svh] flex-col md:min-h-[92vh]"
     >
       <div className="pointer-events-none absolute inset-0 hero-vignette" aria-hidden />
       <div className="pointer-events-none absolute inset-0 gradient-mesh" aria-hidden />
