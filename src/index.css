@@ -343,14 +343,13 @@ button:focus-visible {
   border-radius: 9999px;
 }
 
-/** Крупная иконка в герое: слегка приглушаем край кадра PNG, чтобы не читался прямоугольник файла */
+/** Крупная иконка в hero: строго по центру и без дополнительных сдвигов */
 .hero-bot-cluster .bot-icon-frame img {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  transform: scale(1.02);
-  transform-origin: center;
-  mask-image: radial-gradient(circle at 50% 48%, black 95%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at 50% 48%, black 95%, transparent 100%);
+  transform: none;
+  mask-image: none;
+  -webkit-mask-image: none;
 }
 
 .glass-quote {
