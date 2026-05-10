@@ -86,11 +86,12 @@ export function PathAppShowcase() {
         Интерфейс приложения
       </p>
       <div className="relative rounded-[1.35rem] border border-white/[0.08] bg-gradient-to-b from-zinc-900/90 to-[#07070d] p-2 shadow-[0_24px_56px_-28px_rgba(0,0,0,0.75)] ring-1 ring-inset ring-white/[0.04] sm:p-2.5">
-        <div className="relative mx-auto aspect-[10/16] w-full max-w-[280px] overflow-hidden rounded-2xl bg-[#0a0a12] sm:max-w-[300px]">
+        <div className="relative mx-auto aspect-[10/16] w-full max-w-[280px] overflow-hidden rounded-2xl border border-white/[0.1] bg-gradient-to-b from-zinc-900 via-[#0d1020] to-[#080a12] shadow-[0_20px_44px_-26px_rgba(8,10,22,0.95)] sm:max-w-[300px]">
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-12 bg-gradient-to-b from-black/15 to-transparent" aria-hidden />
           <AnimatePresence initial={false} mode="popLayout">
             <motion.div
               key={slide.id}
-              className="absolute inset-0 flex items-center justify-center p-1.5 sm:p-2"
+              className="absolute inset-0"
               initial={{ opacity: 0, x: reduce ? 0 : dirRef.current * 14 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: reduce ? 0 : dirRef.current * -10 }}
@@ -102,7 +103,7 @@ export function PathAppShowcase() {
                 width={800}
                 height={1200}
                 sizes="(max-width: 640px) 85vw, 300px"
-                className="max-h-full max-w-full object-contain"
+                className="h-full w-full object-cover object-top"
                 loading="lazy"
                 decoding="async"
               />
